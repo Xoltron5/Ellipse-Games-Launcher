@@ -1,14 +1,16 @@
-package WelcomePage;
+package OldSwingCode.WelcomePage;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
 
-public class West extends JPanel {
-    final int WIDTH = 100;
-    final int HEIGHT = 500;
+
+public class South extends JPanel {
+    
+    final int WIDTH = 500;
+    final int HEIGHT = 100;
     final int BACKGROUNDCOLOR = 0x123456;
 
-    West() {
+    South() {
         // changes the background color
         this.setBackground(new Color(BACKGROUNDCOLOR));
 
