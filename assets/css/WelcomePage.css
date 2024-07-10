@@ -1,0 +1,9 @@
+#logIntoAccount,
+#createAnAccount {
+    -fx-text-fill: #d9d9d9;
+}
+
+#logIntoAccount:hover, 
+#createAnAccount:hover {
+    -fx-text-fill: #ffffff;
+}
