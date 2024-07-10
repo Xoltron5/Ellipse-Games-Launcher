@@ -12,7 +12,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         
-        new WelcomePage(primaryStage);
+        WelcomePage welcomePage = new WelcomePage();
+        welcomePage.initializeStage(primaryStage);
+        
     }
 
     public void changeScene(String fxml) throws IOException {
