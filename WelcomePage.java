@@ -8,11 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class WelcomePage {
-
-    final private String FXMLFILEPATH = "Welcome.fxml";
+public class WelcomePage extends Page {
+    final private String FXMLFILEPATH = "assets/fxml/WelcomePage.fxml";
     final private String CSSFILEPATH = "assets/css/WelcomePage.css";
-    final private String CSS = this.getClass().getResource(CSSFILEPATH).toExternalForm();
+    final private String CSS = this.getClass().getResource(getCSSFILEPATH()).toExternalForm();
 
     @FXML 
     private BorderPane mainPane;
@@ -23,11 +22,12 @@ public class WelcomePage {
     @FXML
     private Button createAnAccount; 
 
-    public void initializeStage(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(FXMLFILEPATH));
+    @Override
+    public void initializeScene(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(getFXMLFILEPATH()));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        scene.getStylesheets().add(CSS);
+        scene.getStylesheets().add(getCSS());
         primaryStage.show();
     }
 
@@ -35,12 +35,14 @@ public class WelcomePage {
         System.out.println("n");
     }
 
-    public void logIntoAccount(ActionEvent e) {
-        System.out.println("p");
+    public void logIntoAccount(ActionEvent e) throws IOException {
+        LoginPage loginPage = new LoginPage();
+        loginPage.initializeScene(Main.getStage());
     }
 
-    public Button getCreateAnAccount() {
-        return createAnAccount;
+    public void getCreateAnAccount(ActionEvent e) throws IOException {
+        SignupPage signupPage = new SignupPage();
+        signupPage.initializeScene(Main.getStage());
     }
 
     public void setCreateAnAccount(Button createAnAccount) {
@@ -53,5 +55,17 @@ public class WelcomePage {
 
     public void setLogIntoAccount(Button logIntoAccount) {
         this.logIntoAccount = logIntoAccount;
+    }
+
+    public String getFXMLFILEPATH() {
+        return FXMLFILEPATH;
+    }
+
+    public String getCSSFILEPATH() {
+        return CSSFILEPATH;
+    }
+
+    public String getCSS() {
+        return CSS;
     }
 }

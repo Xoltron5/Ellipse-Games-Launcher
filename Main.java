@@ -1,7 +1,4 @@
-import java.io.IOException;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -14,21 +11,32 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        stage = primaryStage;
-        primaryStage.setTitle(TITLE);
-        primaryStage.getIcons().add(ICON);
+        Main.setStage(primaryStage);
+        stage.setTitle(getTITLE());
+        stage.getIcons().add(getICON());
         
         WelcomePage welcomePage = new WelcomePage();
-        welcomePage.initializeStage(primaryStage);
-    }
-
-    public void changeScene(String fxml) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        stage.getScene().setRoot(pane);
+        welcomePage.initializeScene(Main.getStage());
     }
     
     public static void main(String[] args) {
         //System.out.println("Hello World");
         launch(args);
+    }
+
+    public static Stage getStage() {
+        return stage;
+    }
+
+    public static void setStage(Stage stage) {
+        Main.stage = stage;
+    }
+
+    public Image getICON() {
+        return ICON;
+    }
+
+    public String getTITLE() {
+        return TITLE;
     }
 }
