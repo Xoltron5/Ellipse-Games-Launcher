@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -15,6 +16,13 @@ public class LoginPage extends Page {
     @FXML 
     private BorderPane mainPane;
 
+    @FXML
+    private Button signUpHere;
+
+    @FXML
+    private Button login;
+
+    // sets up the Scene 
     @Override
     public void initializeScene(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(getFXMLFILEPATH()));
@@ -23,13 +31,14 @@ public class LoginPage extends Page {
         scene.getStylesheets().add(getCSS());
         primaryStage.show();
     }
-
-    public void createAnAccount(ActionEvent e) { 
-        System.out.println("NOOB");
+    
+    public void login(ActionEvent e) {
+        System.out.println("login");
     }
 
-    public void logIntoAccount(ActionEvent e) {
-        System.out.println("YUP");
+    public void signUpHere(ActionEvent e) throws IOException {
+        SignupPage signupPage = new SignupPage();
+        signupPage.initializeScene(Main.getStage());
     }
 
     public String getFXMLFILEPATH() {

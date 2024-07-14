@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignupPage">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignupPage">
    <bottom>
       <HBox alignment="CENTER" minHeight="50.0" style="-fx-background-color: #1A1A1A;" BorderPane.alignment="CENTER">
          <children>
@@ -60,6 +60,47 @@
                   </VBox>
                   <VBox layoutX="10.0" layoutY="104.0">
                      <children>
+                        <Label text="Email Address" textFill="#d9d9d9">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <PasswordField style="-fx-background-color: #1A1A1A; -fx-background-radius: 10; -fx-text-fill: #D9D9D9;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </PasswordField>
+                        <Label text="Incorrect Email Address" textFill="#ea3939">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="215.0">
+                     <children>
+                        <Label text="Date Of Birth (DD/MM/YY)" textFill="#d9d9d9">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <PasswordField style="-fx-background-color: #1A1A1A; -fx-background-radius: 10; -fx-text-fill: #D9D9D9;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </PasswordField>
+                        <Label text="Incorrect Date Of Birth" textFill="#ea3939">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="262.0">
+                     <children>
                         <Label text="Password" textFill="#d9d9d9">
                            <font>
                               <Font size="18.0" />
@@ -76,13 +117,29 @@
                            </font>
                         </Label>
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="334.0">
+                     <children>
+                        <Label text="Confirm Password" textFill="#d9d9d9">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <PasswordField style="-fx-background-color: #1A1A1A; -fx-background-radius: 10; -fx-text-fill: #D9D9D9;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </PasswordField>
+                        <Label text="Incorrect Password" textFill="#ea3939">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
                   </VBox>
                   <VBox alignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: none;" text="Login" textFill="#d9d9d9">
+                        <Button fx:id="signUp" mnemonicParsing="false" onAction="#signUp" style="-fx-background-color: none;" text="Sign up" textFill="#d9d9d9">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -90,7 +147,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: none;" text="Don’t have an account? Sign up here" textFill="#575757">
+                        <Button fx:id="loginHere" mnemonicParsing="false" onAction="#loginHere" style="-fx-background-color: none;" text="Already have an account? Login here" textFill="#575757">
                            <font>
                               <Font size="18.0" />
                            </font>

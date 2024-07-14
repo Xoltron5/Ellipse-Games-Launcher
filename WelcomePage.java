@@ -31,8 +31,9 @@ public class WelcomePage extends Page {
         primaryStage.show();
     }
 
-    public void createAnAccount(ActionEvent e) { 
-        System.out.println("n");
+    public void createAnAccount(ActionEvent e) throws IOException { 
+        SignupPage signupPage = new SignupPage();
+        signupPage.initializeScene(Main.getStage());
     }
 
     public void logIntoAccount(ActionEvent e) throws IOException {

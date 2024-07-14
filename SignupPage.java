@@ -4,16 +4,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class SignupPage extends Page {
-    final private String FXMLFILEPATH = "assets/fxml/LoginPage.fxml";
-    final private String CSSFILEPATH = "assets/css/LoginPage.css";
+    final private String FXMLFILEPATH = "assets/fxml/SignupPage.fxml";
+    final private String CSSFILEPATH = "assets/css/SignupPage.css";
     final private String CSS = this.getClass().getResource(getCSSFILEPATH()).toExternalForm();
 
     @FXML 
     private BorderPane mainPane;
+
+    @FXML
+    private Button loginHere;
+
+    @FXML
+    private Button signUp;
 
     @Override
     public void initializeScene(Stage primaryStage) throws IOException {
@@ -24,12 +31,13 @@ public class SignupPage extends Page {
         primaryStage.show();
     }
 
-    public void createAnAccount(ActionEvent e) { 
-        System.out.println("NOOB");
+    public void signUp(ActionEvent e) {
+        System.out.println("signup");
     }
 
-    public void logIntoAccount(ActionEvent e) {
-        System.out.println("YUP");
+    public void loginHere(ActionEvent e) throws IOException {
+        LoginPage loginPage = new LoginPage();
+        loginPage.initializeScene(Main.getStage());
     }
 
     public String getFXMLFILEPATH() {

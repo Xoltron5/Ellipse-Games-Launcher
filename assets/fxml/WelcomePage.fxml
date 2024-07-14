@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomePage">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomePage">
    <bottom>
       <HBox alignment="CENTER" minHeight="50.0" style="-fx-background-color: #1A1A1A;" BorderPane.alignment="CENTER">
          <children>
@@ -30,7 +30,7 @@
       <VBox minWidth="50.0" prefWidth="50.0" style="-fx-background-color: #1A1A1A;" BorderPane.alignment="CENTER" />
    </right>
    <top>
-      <HBox minHeight="50.0" style="-fx-background-color: #1A1A1A;" BorderPane.alignment="CENTER" />
+      <HBox minHeight="50.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" BorderPane.alignment="CENTER" />
    </top>
    <center>
       <HBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #111010; -fx-background-radius: 20;" BorderPane.alignment="CENTER">

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPage">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPage">
    <bottom>
       <HBox alignment="CENTER" minHeight="50.0" style="-fx-background-color: #1A1A1A;" BorderPane.alignment="CENTER">
          <children>
@@ -82,7 +82,7 @@
                   </VBox>
                   <VBox alignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: none;" text="Login" textFill="#d9d9d9">
+                        <Button fx:id="login" mnemonicParsing="false" onAction="#login" style="-fx-background-color: none;" text="Login" textFill="#d9d9d9">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -90,7 +90,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: none;" text="Don’t have an account? Sign up here" textFill="#575757">
+                        <Button fx:id="signUpHere" mnemonicParsing="false" onAction="#signUpHere" style="-fx-background-color: none;" text="Don’t have an account? Sign up here" textFill="#575757">
                            <font>
                               <Font size="18.0" />
                            </font>

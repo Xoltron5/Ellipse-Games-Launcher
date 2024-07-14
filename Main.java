@@ -6,7 +6,6 @@ public class Main extends Application {
 
     private final String TITLE = "Eclipse Games";
     private final Image ICON = new Image("assets/images/");
-
     private static Stage stage; 
 
     @Override
@@ -14,7 +13,6 @@ public class Main extends Application {
         Main.setStage(primaryStage);
         stage.setTitle(getTITLE());
         stage.getIcons().add(getICON());
-        
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.initializeScene(Main.getStage());
     }
