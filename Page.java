@@ -1,23 +1,53 @@
 import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public abstract class Page {
 
-    final private String FXMLFILEPATH = null;
-    final private String CSSFILEPATH = null;
-    final private String CSS = null;
-    
-    public abstract void initializeScene(Stage primaryStage) throws IOException;
+    private String fxmlFilePath;
+    private String cssFilePath;
+    private String css;
 
-    public String getFXMLFILEPATH() {
-        return FXMLFILEPATH;
+    Scene scene;
+    Parent root;
+
+    public void initializeScene(Stage primaryStage) throws IOException {
+        if (getFXMLFilePath() == null) {
+            throw new IllegalStateException("FXML file path cannot be null");
+        }
+        root = FXMLLoader.load(getClass().getResource(getFXMLFilePath()));
+        scene = new Scene(root);
+        primaryStage.setScene(scene);
+        if (getCSS() != null) {
+            scene.getStylesheets().add(getCSS());
+        }
+        primaryStage.show();
     }
 
-    public String getCSSFILEPATH() {
-        return CSSFILEPATH;
+    // Getters & Setters 
+    public String getFXMLFilePath() {
+        return fxmlFilePath;
     }
-    
+
+    public void setFXMLFilePath(String fxmlFilePath) {
+        this.fxmlFilePath = fxmlFilePath;
+    }
+
+    public String getCSSFilePath() {
+        return cssFilePath;
+    }
+
+    public void setCSSFilePath(String cssFilePath) {
+        this.cssFilePath = cssFilePath;
+    }
+
     public String getCSS() {
-        return CSS;
+        return css;
+    }
+
+    public void setCSS(String css) {
+        this.css = css;
     }
 }

@@ -6,19 +6,24 @@ public class Main extends Application {
 
     private final String TITLE = "Eclipse Games";
     private final Image ICON = new Image("assets/images/");
-    private static Stage stage; 
+    private static Stage stage;
+    private static Page currentPage;
+    private static PageManager pageManager;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         Main.setStage(primaryStage);
         stage.setTitle(getTITLE());
         stage.getIcons().add(getICON());
-        WelcomePage welcomePage = new WelcomePage();
-        welcomePage.initializeScene(Main.getStage());
+        pageManager = new PageManager(primaryStage);
+        DBUtils.loadDatabaseCredentials();
+
+        Welcome welcomePage = new Welcome();
+        pageManager.navigateTo(welcomePage);
+
     }
-    
+
     public static void main(String[] args) {
-        //System.out.println("Hello World");
         launch(args);
     }
 
@@ -36,5 +41,17 @@ public class Main extends Application {
 
     public String getTITLE() {
         return TITLE;
+    }
+
+    public static Page getCurrentPage() {
+        return currentPage;
+    }
+
+    public static void setCurrentPage(Page currentPage) {
+        Main.currentPage = currentPage;
+    }
+
+    public static PageManager getPageManager() {
+        return pageManager;
     }
 }
