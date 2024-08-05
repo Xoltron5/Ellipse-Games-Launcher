@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" fitToWidth="true" VBox.vgrow="ALWAYS">
+         <content>
+            <TilePane fx:id="tilePane" hgap="10" vgap="10" minHeight="0.0" minWidth="0.0" prefTileHeight="100.0" prefTileWidth="100.0">
+               <children>
+                  <Button text="Button 1" />
+                  <Button text="Button 2" />
+                  <Button text="Button 3" />
+                  <Button text="Button 4" />
+                  <Button text="Button 5" />
+                  <Button text="Button 6" />
+                  <Button text="Button 7" />
+                  <Button text="Button 8" />
+                  <Button text="Button 9" />
+               </children>
+            </TilePane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

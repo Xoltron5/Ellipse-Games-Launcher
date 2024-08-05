@@ -1,3 +1,4 @@
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -9,10 +10,10 @@ import javafx.scene.control.TextField;
 public class InputValidUtils {
 
     final static int MIN_USERNAME_LENGTH = 1;
-    final static int MAX_USERNAME_LENGTH = 20;
+    final static int MAX_USERNAME_LENGTH = 30;
 
     final static int MIN_PASSWORD_LENGTH = 1;
-    final static int MAX_PASSWORD_LENGTH = 200;
+    final static int MAX_PASSWORD_LENGTH = 255;
 
     // Error Messages
     private static final String INVALID_EMAIL_MESSAGE = "Invalid Email";

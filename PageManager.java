@@ -1,3 +1,4 @@
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Stack;
@@ -13,8 +14,8 @@ public class PageManager {
     }
 
     // Navigates a user to a new page.
-    public void navigateTo(Page page) throws IOException {
-        page.initializeScene(primaryStage);
+    public FXMLLoader navigateTo(Page page) throws IOException {
+        return page.initializeScene(primaryStage);
     }
 
     // This will save the pervious page. So the user can navigate back to it. 

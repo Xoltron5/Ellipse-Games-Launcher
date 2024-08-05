@@ -20,10 +20,10 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "big_test",
-            "database": "big_test",
-            "username": "root",
-            "group": "big"
+            "name": "Denis's Database ",
+            "group": "Denis's Database ",
+            "database": "egdb",
+            "username": "dev_user"
         }
     ],
 }

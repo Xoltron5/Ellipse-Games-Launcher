@@ -76,6 +76,11 @@
                         </Button>
                      </children>
                   </HBox>
+                  <HBox alignment="CENTER" prefHeight="0.0" prefWidth="651.0">
+                     <children>
+                        <Label fx:id="errorMessageLabel" alignment="CENTER" textFill="RED" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             <ImageView fitHeight="266.0" fitWidth="200">

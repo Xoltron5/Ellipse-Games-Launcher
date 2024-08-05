@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -15,12 +16,16 @@ public class Main extends Application {
         Main.setStage(primaryStage);
         stage.setTitle(getTITLE());
         stage.getIcons().add(getICON());
+
         pageManager = new PageManager(primaryStage);
         DBUtils.loadDatabaseCredentials();
 
         Welcome welcomePage = new Welcome();
-        pageManager.navigateTo(welcomePage);
+        FXMLLoader loader = pageManager.navigateTo(welcomePage);
 
+        welcomePage = loader.getController();
+        
+        welcomePage.displayErrorMessage("HELLLOOOOO");
     }
 
     public static void main(String[] args) {

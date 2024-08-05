@@ -1,7 +1,9 @@
+
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
 public class Welcome extends Page {
@@ -17,6 +19,9 @@ public class Welcome extends Page {
 
     @FXML
     private Button createAnAccount; 
+
+    @FXML
+    private Label errorMessageLabel;
     
     public Welcome() {
         setFXMLFilePath(fxmlFilePath);
@@ -31,6 +36,10 @@ public class Welcome extends Page {
 
     public void logIntoAccount(ActionEvent e) throws IOException {
         Main.getPageManager().navigateTo(new Login());
+    }
+
+    public void displayErrorMessage(String errorMessage) {
+        getErrorMessageLabel().setText(errorMessage);
     }
 
     // Getters & Setters 
@@ -50,6 +59,14 @@ public class Welcome extends Page {
         this.logIntoAccount = logIntoAccount;
     }
 
+    public Label getErrorMessageLabel() {
+        return errorMessageLabel;
+    }
+
+    public void setErrorMessageLabel(Label errorMessageLabel) {
+        this.errorMessageLabel = errorMessageLabel;
+    }
+    
     public String getFXMLFilePath() {
         return fxmlFilePath;
     }

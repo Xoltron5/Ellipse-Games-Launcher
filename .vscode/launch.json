@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "classes.Main",
+            "projectName": "Ellipse-Games-Launcher_38991eb8"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -23,7 +30,7 @@
             "name": "OldMain",
             "request": "launch",
             "mainClass": "OldMain",
-            "projectName": "Ellipse-Games-Launcher_38991eb8",
+            "projectName": "Ellipse-Games-Launcher_38991eb8"
         }
     ]
 }

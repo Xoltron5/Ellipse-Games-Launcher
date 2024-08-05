@@ -13,17 +13,20 @@ public abstract class Page {
     Scene scene;
     Parent root;
 
-    public void initializeScene(Stage primaryStage) throws IOException {
+    public FXMLLoader initializeScene(Stage primaryStage) throws IOException {
         if (getFXMLFilePath() == null) {
             throw new IllegalStateException("FXML file path cannot be null");
         }
-        root = FXMLLoader.load(getClass().getResource(getFXMLFilePath()));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(getFXMLFilePath()));
+        root = loader.load();
         scene = new Scene(root);
         primaryStage.setScene(scene);
         if (getCSS() != null) {
             scene.getStylesheets().add(getCSS());
         }
         primaryStage.show();
+
+        return loader;
     }
 
     // Getters & Setters 

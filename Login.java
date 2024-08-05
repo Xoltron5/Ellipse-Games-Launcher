@@ -53,7 +53,7 @@ public class Login extends Page implements Initializable {
         if (InputValidUtils.validateInputs(playerInputsField, incorrectLabels, false)) {
             System.out.println("db connection");
             // Connect to the database and attempt to log the player in. 
-            DBUtils.logInPlayer(event, playerInputsField, incorrectLabels);
+            LoginContr.logInPlayer(event, playerInputsField, incorrectLabels);
         }
     }
 

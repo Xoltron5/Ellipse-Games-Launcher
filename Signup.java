@@ -1,3 +1,4 @@
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -69,7 +70,7 @@ public class Signup extends Page implements Initializable {
     public void signUp(ActionEvent event) throws IOException {
         if (InputValidUtils.validateInputs(playerInputs, incorrectLabels, true)) {
             System.out.println("db connection");
-            DBUtils.signUpPlayer(event, playerInputs, incorrectLabels);
+            SignupContr.signUpPlayer(event, playerInputs, incorrectLabels);
         }
     }
 

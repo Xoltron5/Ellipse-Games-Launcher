@@ -1,3 +1,4 @@
+
 // Mutable Boolean wrapper class
 class BooleanWrapper {
     private boolean value;

@@ -20,6 +20,7 @@ public class ServiceUnavailable extends Page {
     private Button previousPageButton;
 
     private String errorCodeText;
+
     private String errorDescriptionText;
 
     private String fxmlFilePath = "/assets/fxml/ServiceUnavailable.fxml";
