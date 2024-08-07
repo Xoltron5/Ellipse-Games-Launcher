@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS player  (
     email TEXT NOT NULL,
     dateOfBirth DATE NOT NULL,
     password VARCHAR(255) NOT NULL,
+    coins BIGINT,
     xp BIGINT NOT NULL,
     icon BLOB NOT NULL,
     sessionCookie DATETIME NOT NULL, 

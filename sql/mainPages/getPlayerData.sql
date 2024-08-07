@@ -1,0 +1,1 @@
+SELECT coins, xp FROM player WHERE username = ?; 

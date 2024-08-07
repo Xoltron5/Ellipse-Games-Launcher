@@ -65,13 +65,15 @@ public class LoginContr extends DBUtils {
                 return;
             }
 
+            // Set the Session Variables to hold data that will follow the user across pages.
             Player.username = username;
             
             // Test code if everything goes well. 
             try {
-                Games games = new Games();
-                Main.getPageManager().navigateTo(games);
+                Main.getPageManager().navigateTo(new Games());
                 System.out.println("Hello" + Player.username);
+                System.out.println("XP: " + Player.xp);
+                System.out.println("Coins: " + Player.coins);
             } catch (Exception e) {
                 e.printStackTrace();
             }

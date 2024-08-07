@@ -52,3 +52,26 @@
     -fx-background-insets: 0;
 }
 
+/* styles.css */
+.combo-box {
+    -fx-font-family: Arial;
+    -fx-text-fill: #d9d9d9;
+}
+
+.combo-box .list-cell {
+    -fx-font-family: Arial;
+    -fx-text-fill: #d9d9d9;
+}
+
+.combo-box .arrow-button .arrow {
+    -fx-background-color: #d9d9d9; /* Change this to your desired color */
+}
+
+/* Change the font of the ComboBox and its items to Arial */
+
+/* Change the background color of the dropdown box */
+.combo-box-popup .list-view {
+    -fx-background-radius: 10px;
+    -fx-font-family: Arial;
+    -fx-background-color: #1A1A1A; /* Change this to your desired background color */
+}

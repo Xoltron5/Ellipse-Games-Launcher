@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Welcome">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Games">
    <bottom>
       <HBox alignment="CENTER" minHeight="50.0" style="-fx-background-color: #1A1A1A;" BorderPane.alignment="CENTER">
          <children>
@@ -37,7 +37,7 @@
                   <Insets bottom="10.0" top="20.0" />
                </VBox.margin>
             </Circle>
-            <Label text="&lt;Username&gt;" textFill="#d9d9d9">
+            <Label fx:id="usernameLabel" text="&lt;Username&gt;" textFill="#d9d9d9">
                <font>
                   <Font name="Arial" size="20.0" />
                </font>
@@ -45,7 +45,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label layoutX="90.0" layoutY="203.0" text="Level 0" textFill="#d9d9d9">
+            <Label fx:id="levelLabel" layoutX="90.0" layoutY="203.0" text="Level 0" textFill="#d9d9d9">
                <font>
                   <Font size="18.0" />
                </font>
@@ -53,7 +53,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label text="100 more xp to level 1" textFill="#d9d9d9">
+            <Label fx:id="moreXpLabel" text="100 more xp to level 1" textFill="#d9d9d9">
                <font>
                   <Font size="16.0" />
                </font>
@@ -74,13 +74,13 @@
                      </font>
                   </Label>
                   <Region fx:id="space1" HBox.hgrow="ALWAYS" />
-                  <Label text="Check the new Hot Deals! 🔥, &lt;Username&gt;!" textFill="#d9d9d9">
+                  <Label text="Check the new Hot Deals!" textFill="#d9d9d9">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font>
                   </Label>
                   <Region fx:id="space2" HBox.hgrow="ALWAYS" />
-                  <Label text="Coins: 0" textFill="#d9d9d9">
+                  <Label fx:id="coinsAmountLabel" text="Coins: " textFill="#d9d9d9">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font>

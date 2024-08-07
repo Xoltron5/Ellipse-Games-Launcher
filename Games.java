@@ -1,8 +1,31 @@
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.TilePane;
 
-public class Games extends Page {
+public class Games extends Page implements Initializable{
+
+    @FXML
+    private ScrollPane scrollPane;
+
+    @FXML
+    private TilePane tilePane;
+
+    @FXML
+    private Label usernameLabel;
+    
+    @FXML
+    private Label levelLabel;
+
+    @FXML
+    private Label moreXpLabel;
+
+    @FXML
+    private Label coinsAmountLabel;
+
     private String fxmlFilePath;
     private String cssFilePath;
     private String css;
@@ -21,15 +44,28 @@ public class Games extends Page {
         setCSS(css);
     }
 
-    @FXML
-    private ScrollPane scrollPane;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    
+        String currentCoinsText = getCoinsAmountLabel().getText();
 
-    @FXML
-    private TilePane tilePane;
+        getUsernameLabel().setText(Player.username);
+        getCoinsAmountLabel().setText(currentCoinsText + Long.toString(Player.coins));
+    }
 
-    @FXML
-    public void initialize() {
-        // Bind the TilePane width to the ScrollPane width
-        tilePane.prefWidthProperty().bind(scrollPane.widthProperty());
+    public Label getUsernameLabel() {
+        return usernameLabel;
+    }
+
+    public Label getLevelLabel() {
+        return levelLabel;
+    }
+
+    public Label getCoinsAmountLabel() {
+        return coinsAmountLabel;
+    }
+
+    public Label getMoreXpLabel() {
+        return moreXpLabel;
     }
 }

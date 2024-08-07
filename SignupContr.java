@@ -86,15 +86,24 @@ public class SignupContr extends DBUtils {
             psInsert.setString(2, email);
             psInsert.setString(3, newDateOfBirth);
             psInsert.setString(4, hashedPassword);
-        
+            psInsert.setDouble(5, GamesUtils.BASE_COINS); // User starts off with 0 coins when they sign up!
+            psInsert.setDouble(6, GamesUtils.BASE_XP); // User starts off with 0 xp when they sign up!
+
             // Executes the Query. 
             psInsert.executeUpdate();
 
+            // Set the Session Variables to hold data that will follow the user across pages.
             Player.username = username;
-            // test code if everything goes well. 
+            Player.xp = GamesUtils.BASE_XP;
+            Player.coins = GamesUtils.BASE_COINS;
+            
+            // Test code if everything goes well. 
             try {
-                Welcome welcome = new Welcome();
-                Main.getPageManager().navigateTo(welcome);
+                Games games = new Games();
+                Main.getPageManager().navigateTo(games);
+                System.out.println("Hello" + Player.username);
+                System.out.println("XP: " + Player.xp);
+                System.out.println("Coins: " + Player.coins);
             } catch (Exception e) {
                 e.printStackTrace();
             }

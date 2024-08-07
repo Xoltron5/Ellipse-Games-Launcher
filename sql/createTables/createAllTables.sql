@@ -4,6 +4,7 @@ CREATE TABLE  player  (
     email TEXT ,
     dateOfBirth DATE ,
     password VARCHAR(255) ,
+    coins BIGINT ,
     xp BIGINT ,
     icon BLOB ,
     sessionCookie DATETIME , 
