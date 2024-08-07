@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -14,7 +16,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Games">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GamesPage">
    <bottom>
       <HBox alignment="CENTER" minHeight="50.0" style="-fx-background-color: #1A1A1A;" BorderPane.alignment="CENTER">
          <children>
@@ -45,7 +47,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="levelLabel" layoutX="90.0" layoutY="203.0" text="Level 0" textFill="#d9d9d9">
+            <Label fx:id="levelLabel" layoutX="90.0" layoutY="203.0" text="Level " textFill="#d9d9d9">
                <font>
                   <Font size="18.0" />
                </font>
@@ -53,7 +55,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="moreXpLabel" text="100 more xp to level 1" textFill="#d9d9d9">
+            <Label fx:id="nextLevelXPLabel" text="_ more xp to level _" textFill="#d9d9d9">
                <font>
                   <Font size="16.0" />
                </font>
@@ -74,7 +76,7 @@
                      </font>
                   </Label>
                   <Region fx:id="space1" HBox.hgrow="ALWAYS" />
-                  <Label text="Check the new Hot Deals!" textFill="#d9d9d9">
+                  <Label fx:id="newsLabel" textFill="#d9d9d9">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font>
@@ -169,31 +171,11 @@
                   <TilePane fx:id="tilePane" hgap="20.0" minHeight="0.0" minWidth="0.0" prefTileHeight="150.0" prefTileWidth="150.0" style="-fx-background-color: #111010; -fx-background-radius: 20;" vgap="20.0">
                      <children>
                         <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="200.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
+                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/gameIcons/tmmx.png" />
+                           </image>
+                        </ImageView>
                      </children>
                      <padding>
                         <Insets left="20.0" />

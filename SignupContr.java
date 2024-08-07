@@ -24,6 +24,10 @@ public class SignupContr extends DBUtils {
     private static final String USERNAME_TAKEN = "Username is already taken!";
     private static final String EMAIL_TAKEN = "Email is already taken!";
 
+    // Starting Stats
+    final static long START_XP = 0;
+    final static long START_COINS = 0;
+
     // Signup Page Database Connection. 
     public static void signUpPlayer(ActionEvent event,
     HashMap<String, TextField> playerInputs, HashMap<String, Label> incorrectLabels) throws IOException { 
@@ -86,20 +90,20 @@ public class SignupContr extends DBUtils {
             psInsert.setString(2, email);
             psInsert.setString(3, newDateOfBirth);
             psInsert.setString(4, hashedPassword);
-            psInsert.setDouble(5, GamesUtils.BASE_COINS); // User starts off with 0 coins when they sign up!
-            psInsert.setDouble(6, GamesUtils.BASE_XP); // User starts off with 0 xp when they sign up!
+            psInsert.setDouble(5, START_COINS); // User starts off with 0 coins when they sign up!
+            psInsert.setDouble(6, START_XP); // User starts off with 0 xp when they sign up!
 
             // Executes the Query. 
             psInsert.executeUpdate();
 
             // Set the Session Variables to hold data that will follow the user across pages.
             Player.username = username;
-            Player.xp = GamesUtils.BASE_XP;
-            Player.coins = GamesUtils.BASE_COINS;
+            Player.xp = START_XP;
+            Player.coins = START_COINS;
             
             // Test code if everything goes well. 
             try {
-                Games games = new Games();
+                GamesPage games = new GamesPage();
                 Main.getPageManager().navigateTo(games);
                 System.out.println("Hello" + Player.username);
                 System.out.println("XP: " + Player.xp);

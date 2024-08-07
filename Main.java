@@ -18,9 +18,11 @@ public class Main extends Application {
         stage.getIcons().add(getICON());
 
         pageManager = new PageManager(primaryStage);
+
         DBUtils.loadDatabaseCredentials();
 
         Welcome welcomePage = new Welcome();
+        
         FXMLLoader loader = pageManager.navigateTo(welcomePage);
 
         welcomePage = loader.getController();
