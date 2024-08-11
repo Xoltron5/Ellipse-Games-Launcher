@@ -12,9 +12,11 @@ public class LoginContr extends DBUtils {
 
     // Query file paths 
     private static final String SELECT_PASS_QUERY = "sql/login/selectPass.sql";
+    private static final String SELECT_CONTENT_QUERY = "sql/login/selectContent.sql";
 
     // SQL queries (for login) 
     private static String selectPassQuery = loadSQLFromFile(getSelectPassQuery());
+    private static String selectContentQuery = loadSQLFromFile(getSelectContentQuery());
 
     // This method is responsible for performing extra checks and logging the user in.
     // Along with connecting to the database. 
@@ -66,14 +68,24 @@ public class LoginContr extends DBUtils {
             }
 
             // Set the Session Variables to hold data that will follow the user across pages.
-            Player.username = username;
-            
+            ps = connection.prepareStatement(selectContentQuery);
+
+            ps.setString(1, username);
+
+            resultSet = ps.executeQuery();
+
+            Player.setUsername(username);
+            while (resultSet.next()) {
+                Player.setXp(resultSet.getInt("xp"));
+                Player.setCoins(resultSet.getInt("coins"));
+            }
+
             // Test code if everything goes well. 
             try {
                 Main.getPageManager().navigateTo(new GamesPage());
-                System.out.println("Hello" + Player.username);
-                System.out.println("XP: " + Player.xp);
-                System.out.println("Coins: " + Player.coins);
+                System.out.println("Hello" + Player.getUsername());
+                System.out.println("XP: " + Player.getXp());
+                System.out.println("Coins: " + Player.getCoins());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -92,5 +104,9 @@ public class LoginContr extends DBUtils {
 
     public static String getSelectPassQuery() {
         return SELECT_PASS_QUERY;
+    }
+
+    public static String getSelectContentQuery() {
+        return SELECT_CONTENT_QUERY;
     }
 }

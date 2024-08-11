@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -70,19 +69,19 @@
          <children>
             <HBox alignment="CENTER" minHeight="50.0" prefWidth="1050.0" spacing="10.0" style="-fx-background-color: #1A1A1A;">
                <children>
-                  <Label text="V0.0.1" textFill="#d9d9d9">
+                  <Label fx:id="appVersionLabel" text="V(N/A)" textFill="#d9d9d9">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font>
                   </Label>
                   <Region fx:id="space1" HBox.hgrow="ALWAYS" />
-                  <Label fx:id="newsLabel" textFill="#d9d9d9">
+                  <Label fx:id="newsLabel" text="NEWS: " textFill="#d9d9d9">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font>
                   </Label>
                   <Region fx:id="space2" HBox.hgrow="ALWAYS" />
-                  <Label fx:id="coinsAmountLabel" text="Coins: " textFill="#d9d9d9">
+                  <Label fx:id="coinsAmountLabel" text="Coins:  " textFill="#d9d9d9">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font>
@@ -170,8 +169,12 @@
                <content>
                   <TilePane fx:id="tilePane" hgap="20.0" minHeight="0.0" minWidth="0.0" prefTileHeight="150.0" prefTileWidth="150.0" style="-fx-background-color: #111010; -fx-background-radius: 20;" vgap="20.0">
                      <children>
-                        <Button prefHeight="190.0" prefWidth="178.0" style="-fx-background-color: #212121; -fx-background-radius: 10;" text="Game" textFill="WHITE" />
-                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/gameIcons/tmmx.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/gameIcons/tmmx.png" />
                            </image>

@@ -1,18 +1,9 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.TilePane;
 
-public class GamesPage extends Page implements Initializable{
-
-    @FXML
-    private ScrollPane scrollPane;
-
-    @FXML
-    private TilePane tilePane;
+public class GamesPage extends MainPage {
 
     @FXML
     private Label usernameLabel;
@@ -22,9 +13,6 @@ public class GamesPage extends Page implements Initializable{
 
     @FXML
     private Label nextLevelXPLabel;
-
-    @FXML
-    private Label coinsAmountLabel;
 
     @FXML
     private Label newsLabel;
@@ -50,26 +38,28 @@ public class GamesPage extends Page implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     
+        getAppVersionLabel().setText(getAppVersion());
+
         String currentCoinsText = getCoinsAmountLabel().getText();
         String currentLevelText = getLevelLabel().getText();
 
         // Displays the player's username.
-        getUsernameLabel().setText(Player.username);
+        getUsernameLabel().setText(Player.getUsername());
 
         // Displays the player's coins.
-        getCoinsAmountLabel().setText(currentCoinsText + Long.toString(Player.coins));
+        getCoinsAmountLabel().setText(currentCoinsText + Long.toString(Player.getCoins()));
 
         // Displays the latest news.
         getNewsLabel().setText("Check the new Hot Deals! 🔥");
 
         // Calculates the player's current level based on their xp.
-        int playersLevel = GamesUtils.determineLevel(Player.xp);
+        int playersLevel = Player.determineLevel(Player.getXp());
 
         // Displays the player's current level.
         getLevelLabel().setText(currentLevelText + playersLevel);
         
         // Calculates the player's next level based on their xp.
-        long nextLevelXP = GamesUtils.nextLevelXP(Player.xp);
+        long nextLevelXP = Player.nextLevelXP(Player.getXp());
         int nextLevel = playersLevel + 1;
 
         // Displays the player's xp needed for the next level.
@@ -85,9 +75,6 @@ public class GamesPage extends Page implements Initializable{
         return levelLabel;
     }
 
-    public Label getCoinsAmountLabel() {
-        return coinsAmountLabel;
-    }
 
     public Label getNextLevelXPLabel() {
         return nextLevelXPLabel;

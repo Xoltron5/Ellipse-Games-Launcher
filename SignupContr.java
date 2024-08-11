@@ -97,17 +97,17 @@ public class SignupContr extends DBUtils {
             psInsert.executeUpdate();
 
             // Set the Session Variables to hold data that will follow the user across pages.
-            Player.username = username;
-            Player.xp = START_XP;
-            Player.coins = START_COINS;
+            Player.setUsername(username);
+            Player.setXp(START_XP);
+            Player.setCoins(START_COINS);
             
             // Test code if everything goes well. 
             try {
                 GamesPage games = new GamesPage();
                 Main.getPageManager().navigateTo(games);
-                System.out.println("Hello" + Player.username);
-                System.out.println("XP: " + Player.xp);
-                System.out.println("Coins: " + Player.coins);
+                System.out.println("Hello" + Player.getUsername());
+                System.out.println("XP: " + Player.getXp());
+                System.out.println("Coins: " + Player.getCoins());
             } catch (Exception e) {
                 e.printStackTrace();
             }
