@@ -2,7 +2,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
 public class GamesPage extends MainPage {
@@ -74,31 +73,32 @@ public class GamesPage extends MainPage {
     // and adds the needed info to the image view.
     public void displayGames() {
         
-        // Set desired dimensions for the ImageView
+        // Set desired dimensions for the GameView
         int fitWidth = 150; // Adjust the width as needed
         int fitHeight = 150; // Adjust the height as needed
         int cornerRadius = 20; // Radius for the rounded corners
         
         // Iterate through all the game details and add them to the TilePane
         for (GameDetails gameDetails : GameDetailsHolder.getGameDetailsHolder()) {
+            long gameId = gameDetails.getId();
             String path = gameDetails.getIconPath();
-            ImageView imageView = new ImageView(path);
+            GameView gameView = new GameView(gameId, path);
     
-            // Set the ImageView's fitWidth and fitHeight
-            imageView.setFitWidth(fitWidth);
-            imageView.setFitHeight(fitHeight);
-            imageView.setPreserveRatio(true); // Preserve the image's aspect ratio
+            // Set the GameView's fitWidth and fitHeight
+            gameView.setFitWidth(fitWidth);
+            gameView.setFitHeight(fitHeight);
+            gameView.setPreserveRatio(true); // Preserve the image's aspect ratio
     
             // Create a rectangle with rounded corners
             Rectangle clip = new Rectangle(fitWidth, fitHeight);
             clip.setArcWidth(cornerRadius);
             clip.setArcHeight(cornerRadius);
             
-            // Set the rectangle as the clip for the ImageView
-            imageView.setClip(clip);
+            // Set the rectangle as the clip for the GameView
+            gameView.setClip(clip);
     
-            // Add the ImageView to the TilePane
-            getTilePane().getChildren().add(imageView);
+            // Add the GameView to the TilePane
+            getTilePane().getChildren().add(gameView);
         }
     }
     
