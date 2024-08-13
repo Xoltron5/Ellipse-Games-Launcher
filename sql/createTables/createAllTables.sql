@@ -17,9 +17,9 @@ CREATE TABLE  game (
     releasedDate DATE , 
     developer TEXT ,
     description TEXT ,
-    icon TEXT ,
-    genre TEXT 
+    iconPath TEXT
 );
+
 
 CREATE TABLE  item (
     id BIGINT PRIMARY KEY,
@@ -45,4 +45,17 @@ CREATE TABLE  playerItem (
     PRIMARY KEY (playerId, itemId),
     FOREIGN KEY (playerId) REFERENCES player(id),
     FOREIGN KEY (itemId) REFERENCES item(id)
+);
+
+CREATE TABLE IF NOT EXISTS genre (
+    id bigint PRIMARY KEY,
+    name text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS gameGenre (
+    gameId bigint,
+    genreId bigint,
+    PRIMARY KEY (gameId, genreId),
+    FOREIGN KEY (gameId) REFERENCES game(id) ON DELETE CASCADE,
+    FOREIGN KEY (genreId) REFERENCES genre(id) ON DELETE CASCADE
 );

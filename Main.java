@@ -20,6 +20,9 @@ public class Main extends Application {
         pageManager = new PageManager(primaryStage);
 
         DBUtils.loadDatabaseCredentials();
+        GameDetailsContr.loadGameDetails();
+
+        System.out.println(GameDetailsHolder.getGameDetailsHolder().get(0).getName());
 
         Welcome welcomePage = new Welcome();
         

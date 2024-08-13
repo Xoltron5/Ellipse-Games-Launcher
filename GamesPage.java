@@ -2,9 +2,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Rectangle;
 
 public class GamesPage extends MainPage {
-
     @FXML
     private Label usernameLabel;
     
@@ -41,32 +42,66 @@ public class GamesPage extends MainPage {
         getAppVersionLabel().setText(getAppVersion());
 
         String currentCoinsText = getCoinsAmountLabel().getText();
+
         String currentLevelText = getLevelLabel().getText();
 
-        // Displays the player's username.
+        // Sets the player's username.
         getUsernameLabel().setText(Player.getUsername());
 
-        // Displays the player's coins.
+        // Sets the player's coins.
         getCoinsAmountLabel().setText(currentCoinsText + Long.toString(Player.getCoins()));
 
-        // Displays the latest news.
+        // Sets the latest news.
         getNewsLabel().setText("Check the new Hot Deals! 🔥");
 
         // Calculates the player's current level based on their xp.
         int playersLevel = Player.determineLevel(Player.getXp());
 
-        // Displays the player's current level.
+        // Sets the player's current level.
         getLevelLabel().setText(currentLevelText + playersLevel);
         
         // Calculates the player's next level based on their xp.
         long nextLevelXP = Player.nextLevelXP(Player.getXp());
         int nextLevel = playersLevel + 1;
 
-        // Displays the player's xp needed for the next level.
+        // Sets the player's xp needed for the next level.
         getNextLevelXPLabel().setText(nextLevelXP + " more xp to Level " + nextLevel);
 
+        displayGames();
     }
 
+    // Iterates through each game details object held within a holder/container 
+    // and adds the needed info to the image view.
+    public void displayGames() {
+        
+        // Set desired dimensions for the ImageView
+        int fitWidth = 150; // Adjust the width as needed
+        int fitHeight = 150; // Adjust the height as needed
+        int cornerRadius = 20; // Radius for the rounded corners
+        
+        // Iterate through all the game details and add them to the TilePane
+        for (GameDetails gameDetails : GameDetailsHolder.getGameDetailsHolder()) {
+            String path = gameDetails.getIconPath();
+            ImageView imageView = new ImageView(path);
+    
+            // Set the ImageView's fitWidth and fitHeight
+            imageView.setFitWidth(fitWidth);
+            imageView.setFitHeight(fitHeight);
+            imageView.setPreserveRatio(true); // Preserve the image's aspect ratio
+    
+            // Create a rectangle with rounded corners
+            Rectangle clip = new Rectangle(fitWidth, fitHeight);
+            clip.setArcWidth(cornerRadius);
+            clip.setArcHeight(cornerRadius);
+            
+            // Set the rectangle as the clip for the ImageView
+            imageView.setClip(clip);
+    
+            // Add the ImageView to the TilePane
+            getTilePane().getChildren().add(imageView);
+        }
+    }
+    
     public Label getUsernameLabel() {
         return usernameLabel;
     }
@@ -74,7 +109,6 @@ public class GamesPage extends MainPage {
     public Label getLevelLabel() {
         return levelLabel;
     }
-
 
     public Label getNextLevelXPLabel() {
         return nextLevelXPLabel;

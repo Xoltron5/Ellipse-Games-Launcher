@@ -5,8 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -150,12 +148,7 @@
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></Region>
-                  <ComboBox promptText="Categories" style="-fx-background-color: #1A1A1A; -fx-font-size: 16; -fx-background-radius: 10; -fx-prompt-text-fill: #FFFFFF;">
-                     <HBox.margin>
-                        <Insets right="50.0" />
-                     </HBox.margin>
-                  </ComboBox>
-                  <ComboBox layoutX="580.0" layoutY="42.0" promptText="Filters" style="-fx-background-color: #1A1A1A; -fx-font-size: 16; -fx-background-radius: 10;">
+                  <ComboBox layoutX="580.0" layoutY="42.0" prefHeight="43.0" prefWidth="110.0" promptText="Filters" style="-fx-background-color: #1A1A1A; -fx-font-size: 16; -fx-background-radius: 10;">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
@@ -168,18 +161,6 @@
             <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="500.0" style="-fx-background-color: #111010; -fx-border-color: #111010; -fx-background: #111010; -fx-background-radius: 20;" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
                <content>
                   <TilePane fx:id="tilePane" hgap="20.0" minHeight="0.0" minWidth="0.0" prefTileHeight="150.0" prefTileWidth="150.0" style="-fx-background-color: #111010; -fx-background-radius: 20;" vgap="20.0">
-                     <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/gameIcons/tmmx.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/gameIcons/tmmx.png" />
-                           </image>
-                        </ImageView>
-                     </children>
                      <padding>
                         <Insets left="20.0" />
                      </padding>

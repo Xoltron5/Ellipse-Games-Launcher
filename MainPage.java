@@ -31,4 +31,12 @@ public abstract class MainPage extends Page implements Initializable {
     public Label getCoinsAmountLabel() {
         return coinsAmountLabel;
     }
+
+    public TilePane getTilePane() {
+        return tilePane;
+    }
+
+    public ScrollPane getScrollPane() {
+        return scrollPane;
+    }
 }
