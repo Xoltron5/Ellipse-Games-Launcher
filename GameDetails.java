@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class GameDetails {
     private long id;
     private String name;
@@ -5,6 +7,10 @@ public class GameDetails {
     private String developer;
     private String description;
     private String iconPath; 
+
+    private ArrayList<String> genresContainer = new ArrayList<>();
+
+    private GameView gameView; 
 
     public GameDetails(long id, String name, String releaseDate, 
     String developer, String description, String iconPath) {
@@ -62,5 +68,17 @@ public class GameDetails {
 
     public void setIconPath(String iconPath) {
         this.iconPath = iconPath;
+    }
+
+    public ArrayList<String> getGenresContainer() {
+        return genresContainer;
+    }
+
+    public GameView getGameView() {
+        return gameView;
+    }
+
+    public void setGameView(GameView gameView) {
+        this.gameView = gameView;
     }
 }

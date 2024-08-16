@@ -4,7 +4,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
     private final String TITLE = "Eclipse Games";
     private final Image ICON = new Image("assets/images/");
     private static Stage stage;
@@ -20,9 +19,8 @@ public class Main extends Application {
         pageManager = new PageManager(primaryStage);
 
         DBUtils.loadDatabaseCredentials();
-        GameDetailsContr.loadGameDetails();
 
-        System.out.println(GameDetailsHolder.getGameDetailsHolder().get(0).getName());
+        GameDetailsContr.loadGameDetails();
 
         Welcome welcomePage = new Welcome();
         

@@ -75,3 +75,24 @@
     -fx-font-family: Arial;
     -fx-background-color: #1A1A1A; /* Change this to your desired background color */
 }
+
+/* Style the ComboBox */
+.combo-box {
+    -fx-text-fill: #FFFFFF;         /* Text color of the ComboBox */
+}
+
+/* Style the dropdown list */
+.combo-box-popup .list-view {
+    -fx-background-color: #222222; /* Background color of the dropdown list */
+    -fx-control-inner-background: #222222; /* Background color inside the dropdown list */
+}
+
+/* Style the items in the dropdown list */
+.combo-box-popup .list-cell {
+    -fx-background-color: #222222; /* Background color of each item */
+    -fx-text-fill: #FFFFFF;         /* Text color of each item */
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #444444; /* Background color when an item is hovered over */
+}

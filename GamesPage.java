@@ -1,6 +1,9 @@
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Rectangle;
 
@@ -17,10 +20,27 @@ public class GamesPage extends MainPage {
     @FXML
     private Label newsLabel;
 
+    @FXML
+    private ComboBox<String> filtersComboBox;
+
     private String fxmlFilePath;
+
     private String cssFilePath;
+
     private String css;
 
+    private static final String[] filterContent = {
+        "All",
+        "Adventure",
+        "RPG",
+        "Shooter",
+        "Strategy",
+        "Puzzle",
+        "Racing",
+        "Horror",
+        "Sci-Fi"
+    };
+    
     public GamesPage() {
         // Initialize file paths
         this.fxmlFilePath = "/assets/fxml/GamesPage.fxml";
@@ -37,7 +57,6 @@ public class GamesPage extends MainPage {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    
         getAppVersionLabel().setText(getAppVersion());
 
         String currentCoinsText = getCoinsAmountLabel().getText();
@@ -66,13 +85,15 @@ public class GamesPage extends MainPage {
         // Sets the player's xp needed for the next level.
         getNextLevelXPLabel().setText(nextLevelXP + " more xp to Level " + nextLevel);
 
+        // Sets up the filter content
+        getFiltersComboBox().getItems().addAll(getFilterContent());
+
         displayGames();
     }
 
     // Iterates through each game details object held within a holder/container 
     // and adds the needed info to the image view.
     public void displayGames() {
-        
         // Set desired dimensions for the GameView
         int fitWidth = 150; // Adjust the width as needed
         int fitHeight = 150; // Adjust the height as needed
@@ -96,10 +117,30 @@ public class GamesPage extends MainPage {
             
             // Set the rectangle as the clip for the GameView
             gameView.setClip(clip);
+
+            gameDetails.setGameView(gameView);
     
             // Add the GameView to the TilePane
             getTilePane().getChildren().add(gameView);
         }
+    }
+
+    public void filter(ActionEvent event) {
+        String filterItem = getFiltersComboBox().getValue();
+
+        // acquire game details holder.  
+        ArrayList<GameDetails> gameDetailsHolder = GameDetailsHolder.getGameDetailsHolder();
+
+        // Create an instance of FilterGame and pass the necessary parameters
+        FilterGame filterGame = new FilterGame(filterItem, getTilePane(), gameDetailsHolder);
+
+        // Start a new thread with the FilterGame
+        Thread filterThread = new Thread(filterGame);
+
+        filterThread.setName("Filter Game Thread");
+        filterThread.setDaemon(true);
+        filterThread.start();
+        
     }
     
     public Label getUsernameLabel() {
@@ -117,4 +158,13 @@ public class GamesPage extends MainPage {
     public Label getNewsLabel() {
         return newsLabel;
     }
+
+    public ComboBox<String> getFiltersComboBox() {
+        return filtersComboBox;
+    }
+
+    public static String[] getFilterContent() {
+        return filterContent;
+    }
+
 }

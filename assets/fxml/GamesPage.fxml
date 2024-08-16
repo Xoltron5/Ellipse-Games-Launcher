@@ -148,7 +148,7 @@
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></Region>
-                  <ComboBox layoutX="580.0" layoutY="42.0" prefHeight="43.0" prefWidth="110.0" promptText="Filters" style="-fx-background-color: #1A1A1A; -fx-font-size: 16; -fx-background-radius: 10;">
+                  <ComboBox fx:id="filtersComboBox" layoutX="580.0" layoutY="42.0" onAction="#filter" prefHeight="43.0" prefWidth="150.0" promptText="Filters" style="-fx-background-color: #1A1A1A; -fx-font-size: 16; -fx-background-radius: 10;">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>

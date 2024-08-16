@@ -6,10 +6,11 @@ import java.sql.SQLException;
 public class GameDetailsContr extends DBUtils {
     
     // Query file paths
-    private static final String SELECT_GAME_DETAILS_QUERY_PATH = "sql/gameDetails/selectGameDetails.sql";
-
+    private static final String selectGameDetailsQueryPath = "sql/gameDetails/selectGameDetails.sql";
+    private static final String selectGameGenresQueryPath = "sql/gameDetails/selectGameGenres.sql";
     // SQL queries 
-    private static String selectGameDetailsQuery = loadSQLFromFile(getSelectGameDetailsQueryPath());
+    private static final String selectGameDetailsQuery = loadSQLFromFile(getSelectGameDetailsQueryPath());
+    private static final String selectGameGenresQuery = loadSQLFromFile(getSelectGameGenresQueryPath());
 
     public static void loadGameDetails() {
         // A Connection(Session) with a specific database.
@@ -18,8 +19,10 @@ public class GameDetailsContr extends DBUtils {
         // Prepared Statement is a template statement that we can prepare and set values for ? later. 
         PreparedStatement ps = null;              
         
-        // A table of data representing the results returned from the database.
+        // Table of data representing the results returned from the database.
         ResultSet resultSet = null;
+
+        ResultSet genreResultSet = null;
 
         // Gets a connection
         connection = connect();            
@@ -32,6 +35,8 @@ public class GameDetailsContr extends DBUtils {
             // Executes the query and stores the result within the result set. 
             resultSet = ps.executeQuery();
 
+            // Query used to get all the game genres 
+            ps = connection.prepareStatement(getSelectGameGenresQuery());
             while (resultSet.next()) {
                 // Gets all the game details
                 long id = resultSet.getLong("id");
@@ -44,15 +49,25 @@ public class GameDetailsContr extends DBUtils {
                 // Creates and stores the game details within a game details object.
                 GameDetails gameDetails = new GameDetails(id, gameName, releasedDate, developer, description, iconPath);
 
+                ps.setString(1, gameDetails.getName());
+
+                genreResultSet = ps.executeQuery();
+
+                // Gets each game genre and stores it within a arraylist. 
+                while (genreResultSet.next()) {
+                    String genre = genreResultSet.getString("genreName");
+                    gameDetails.getGenresContainer().add(genre);
+                }
+
                 // Stores the object within a container.
                 GameDetailsHolder.getGameDetailsHolder().add(gameDetails);
             }
+
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             closeResultSet(resultSet);
+            closeResultSet(genreResultSet);
             closePs(ps);
             closeConnection(connection);
         }   
@@ -63,6 +78,14 @@ public class GameDetailsContr extends DBUtils {
     }
 
     public static String getSelectGameDetailsQueryPath() {
-        return SELECT_GAME_DETAILS_QUERY_PATH;
+        return selectGameDetailsQueryPath;
+    }
+
+    public static String getSelectGameGenresQueryPath() {
+        return selectGameGenresQueryPath;
+    }
+
+    public static String getSelectGameGenresQuery() {
+        return selectGameGenresQuery;
     }
 }

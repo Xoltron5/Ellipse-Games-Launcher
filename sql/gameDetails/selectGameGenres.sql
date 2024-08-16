@@ -1,0 +1,1 @@
+SELECT genreName FROM game_genre WHERE gameName = ?;
