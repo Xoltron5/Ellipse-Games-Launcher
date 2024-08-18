@@ -19,7 +19,7 @@
          <children>
             <Label alignment="CENTER" text="Copyright © 2024 Ellipse Games, All Rights Reserved" textFill="#888686">
                <font>
-                  <Font name="Arial" size="16.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
             </Label>
          </children>
@@ -38,7 +38,7 @@
             </Circle>
             <Label fx:id="usernameLabel" text="&lt;Username&gt;" textFill="#d9d9d9">
                <font>
-                  <Font name="Arial" size="20.0" />
+                  <Font name="Arial" size="24.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="10.0" />
@@ -46,7 +46,7 @@
             </Label>
             <Label fx:id="levelLabel" layoutX="90.0" layoutY="203.0" text="Level " textFill="#d9d9d9">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial" size="22.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="10.0" />
@@ -54,7 +54,7 @@
             </Label>
             <Label fx:id="nextLevelXPLabel" text="_ more xp to level _" textFill="#d9d9d9">
                <font>
-                  <Font size="16.0" />
+                  <Font name="Arial" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets />
@@ -69,25 +69,25 @@
                <children>
                   <Label fx:id="appVersionLabel" text="V(N/A)" textFill="#d9d9d9">
                      <font>
-                        <Font name="Arial" size="20.0" />
+                        <Font name="Arial" size="22.0" />
                      </font>
                   </Label>
                   <Region fx:id="space1" HBox.hgrow="ALWAYS" />
                   <Label fx:id="newsLabel" text="NEWS: " textFill="#d9d9d9">
                      <font>
-                        <Font name="Arial" size="20.0" />
+                        <Font name="Arial" size="22.0" />
                      </font>
                   </Label>
                   <Region fx:id="space2" HBox.hgrow="ALWAYS" />
                   <Label fx:id="coinsAmountLabel" text="Coins:  " textFill="#d9d9d9">
                      <font>
-                        <Font name="Arial" size="20.0" />
+                        <Font name="Arial" size="22.0" />
                      </font>
                   </Label>
                   <Region fx:id="space3" HBox.hgrow="ALWAYS" />
                   <Label text="Logout" textFill="#d9d9d9">
                      <font>
-                        <Font name="Arial" size="20.0" />
+                        <Font name="Arial" size="22.0" />
                      </font>
                   </Label>
                </children>
@@ -136,7 +136,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="100.0" prefWidth="719.0" style="-fx-background-color: #111010;">
                <children>
-                  <TextField promptText="Search..." style="-fx-text-fill: #888686; -fx-background-color: #1A1A1A; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="searchTextField" promptText="Search..." style="-fx-text-fill: #888686; -fx-background-color: #1A1A1A; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -148,7 +148,7 @@
                      <HBox.margin>
                         <Insets />
                      </HBox.margin></Region>
-                  <ComboBox fx:id="filtersComboBox" layoutX="580.0" layoutY="42.0" onAction="#filter" prefHeight="43.0" prefWidth="150.0" promptText="Filters" style="-fx-background-color: #1A1A1A; -fx-font-size: 16; -fx-background-radius: 10;">
+                  <ComboBox fx:id="filtersComboBox" layoutX="580.0" layoutY="42.0" onAction="#filter" prefHeight="43.0" prefWidth="150.0" promptText="All" style="-fx-background-color: #1A1A1A; -fx-font-size: 20; -fx-background-radius: 10;">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>

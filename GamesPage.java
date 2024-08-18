@@ -1,10 +1,13 @@
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 
 public class GamesPage extends MainPage {
@@ -23,11 +26,16 @@ public class GamesPage extends MainPage {
     @FXML
     private ComboBox<String> filtersComboBox;
 
+    @FXML
+    private TextField searchTextField;
+
     private String fxmlFilePath;
 
     private String cssFilePath;
 
     private String css;
+
+    private ArrayList<GameDetails> filteredGameDetailsList;
 
     private static final String[] filterContent = {
         "All",
@@ -48,6 +56,8 @@ public class GamesPage extends MainPage {
         
         // Use the initialized paths
         this.css = this.getClass().getResource(cssFilePath).toExternalForm();
+
+        this.filteredGameDetailsList = new ArrayList<>();
 
         // Set the paths using the superclass methods
         setFXMLFilePath(fxmlFilePath);
@@ -88,6 +98,14 @@ public class GamesPage extends MainPage {
         // Sets up the filter content
         getFiltersComboBox().getItems().addAll(getFilterContent());
 
+        // Attach the listener to the searchTextField
+        searchTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                onSearchTextChanged(newValue);
+            }
+        });
+
         displayGames();
     }
 
@@ -121,28 +139,37 @@ public class GamesPage extends MainPage {
             gameDetails.setGameView(gameView);
     
             // Add the GameView to the TilePane
+            filteredGameDetailsList.add(gameDetails);
             getTilePane().getChildren().add(gameView);
         }
     }
-
     public void filter(ActionEvent event) {
-        String filterItem = getFiltersComboBox().getValue();
-
-        // acquire game details holder.  
+        String filterItem = getFiltersComboBox().getValue(); // Ensure this is not null
+        String searchText = searchTextField.getText();  // Get the text from the search field
+    
+        // Acquire the game details holder.
         ArrayList<GameDetails> gameDetailsHolder = GameDetailsHolder.getGameDetailsHolder();
-
-        // Create an instance of FilterGame and pass the necessary parameters
-        FilterGame filterGame = new FilterGame(filterItem, getTilePane(), gameDetailsHolder);
-
-        // Start a new thread with the FilterGame
-        Thread filterThread = new Thread(filterGame);
-
+    
+        // Create an instance of Filter and pass the necessary parameters
+        Filter filterTask = new Filter(filterItem, searchText, getTilePane(), gameDetailsHolder);
+    
+        // Start a new thread with the Filter
+        Thread filterThread = new Thread(filterTask);
+    
         filterThread.setName("Filter Game Thread");
         filterThread.setDaemon(true);
         filterThread.start();
-        
-    }
     
+        // After filtering, set the filtered games to the filteredGameDetailsList for searching
+        this.filteredGameDetailsList = filterTask.getFilteredGameDetails();
+    }    
+    
+    // Custom method that gets called every time the searchTextField is updated
+    private void onSearchTextChanged(String newText) {
+        // Trigger filtering whenever the search text changes
+        filter(new ActionEvent());
+    }
+
     public Label getUsernameLabel() {
         return usernameLabel;
     }
@@ -166,5 +193,4 @@ public class GamesPage extends MainPage {
     public static String[] getFilterContent() {
         return filterContent;
     }
-
 }
