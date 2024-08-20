@@ -1,14 +1,7 @@
-import java.util.ArrayList;
-
-public class GameDetails {
-    private long id;
-    private String name;
+public class GameDetails extends ItemsDetails {
     private String releaseDate;
     private String developer;
     private String description;
-    private String iconPath; 
-
-    private ArrayList<String> genresContainer = new ArrayList<>();
 
     private GameView gameView; 
 
@@ -20,22 +13,6 @@ public class GameDetails {
         this.setDeveloper(developer);
         this.setDescription(description);
         this.setIconPath(iconPath);
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getReleaseDate() {
@@ -60,18 +37,6 @@ public class GameDetails {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getIconPath() {
-        return iconPath;
-    }
-
-    public void setIconPath(String iconPath) {
-        this.iconPath = iconPath;
-    }
-
-    public ArrayList<String> getGenresContainer() {
-        return genresContainer;
     }
 
     public GameView getGameView() {

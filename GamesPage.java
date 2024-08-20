@@ -35,7 +35,7 @@ public class GamesPage extends MainPage {
 
     private String css;
 
-    private ArrayList<GameDetails> filteredGameDetailsList;
+    private ArrayList<ItemsDetails> filteredGameDetailsList;
 
     private static final String[] filterContent = {
         "All",
@@ -118,7 +118,7 @@ public class GamesPage extends MainPage {
         int cornerRadius = 20; // Radius for the rounded corners
         
         // Iterate through all the game details and add them to the TilePane
-        for (GameDetails gameDetails : GameDetailsHolder.getGameDetailsHolder()) {
+        for (ItemsDetails gameDetails : GameDetailsHolder.getItemDetailsHolder()) {
             long gameId = gameDetails.getId();
             String path = gameDetails.getIconPath();
             GameView gameView = new GameView(gameId, path);
@@ -136,7 +136,7 @@ public class GamesPage extends MainPage {
             // Set the rectangle as the clip for the GameView
             gameView.setClip(clip);
 
-            gameDetails.setGameView(gameView);
+            gameDetails.setItemView(gameView);
     
             // Add the GameView to the TilePane
             filteredGameDetailsList.add(gameDetails);
@@ -148,7 +148,7 @@ public class GamesPage extends MainPage {
         String searchText = searchTextField.getText();  // Get the text from the search field
     
         // Acquire the game details holder.
-        ArrayList<GameDetails> gameDetailsHolder = GameDetailsHolder.getGameDetailsHolder();
+        ArrayList<ItemsDetails> gameDetailsHolder = GameDetailsHolder.getItemDetailsHolder();
     
         // Create an instance of Filter and pass the necessary parameters
         Filter filterTask = new Filter(filterItem, searchText, getTilePane(), gameDetailsHolder);

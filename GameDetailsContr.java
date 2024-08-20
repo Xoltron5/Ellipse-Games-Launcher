@@ -60,7 +60,7 @@ public class GameDetailsContr extends DBUtils {
                 }
 
                 // Stores the object within a container.
-                GameDetailsHolder.getGameDetailsHolder().add(gameDetails);
+                GameDetailsHolder.getItemDetailsHolder().add(gameDetails);
             }
 
         } catch (SQLException e) {

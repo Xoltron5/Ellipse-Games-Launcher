@@ -6,29 +6,29 @@ public class Filter implements Runnable {
     private String filterItem;
     private String searchText;
     private TilePane tilePane;
-    private ArrayList<GameDetails> gameDetailsList;
-    private ArrayList<GameDetails> filteredGameDetails;  // Add this field to store filtered results
+    private ArrayList<ItemsDetails> itemDetailsList;
+    private ArrayList<ItemsDetails> filteredItemDetails;  // Add this field to store filtered results
 
-    public Filter(String filterItem, String searchText, TilePane tilePane, ArrayList<GameDetails> gameDetailsList) {
+    public Filter(String filterItem, String searchText, TilePane tilePane, ArrayList<ItemsDetails> itemDetailsList) {
         this.filterItem = filterItem != null ? filterItem : "All";  // Default to "All" if filterItem is null
         this.searchText = searchText != null ? searchText.toLowerCase() : ""; // Default to empty string if searchText is null
         this.tilePane = tilePane;
-        this.gameDetailsList = gameDetailsList;
-        this.filteredGameDetails = new ArrayList<>();  // Initialize the filtered results list
+        this.itemDetailsList = itemDetailsList;
+        this.filteredItemDetails = new ArrayList<>();  // Initialize the filtered results list
     }
 
     @Override
     public void run() {
-        ArrayList<GameView> filteredViews = new ArrayList<>();
+        ArrayList<ItemView> filteredViews = new ArrayList<>();
 
         // Filter based on both the filterItem (genre) and searchText
-        for (GameDetails gameDetails : gameDetailsList) {
-            boolean matchesFilter = filterItem.equals("All") || gameDetails.getGenresContainer().contains(filterItem);
-            boolean matchesSearch = searchText.isEmpty() || gameDetails.getName().toLowerCase().contains(searchText);
+        for (ItemsDetails itemDetails : itemDetailsList) {
+            boolean matchesFilter = filterItem.equals("All") || itemDetails.getGenresContainer().contains(filterItem);
+            boolean matchesSearch = searchText.isEmpty() || itemDetails.getName().toLowerCase().contains(searchText);
 
             if (matchesFilter && matchesSearch) {
-                filteredViews.add(gameDetails.getGameView());
-                filteredGameDetails.add(gameDetails);  // Add matching games to filteredGameDetails
+                filteredViews.add(itemDetails.getItemView());
+                filteredItemDetails.add(itemDetails);  // Add matching items to filteredGameDetails
             }
         }
 
@@ -40,8 +40,8 @@ public class Filter implements Runnable {
     }
 
     // Method to retrieve the filtered results
-    public ArrayList<GameDetails> getFilteredGameDetails() {
-        return filteredGameDetails;
+    public ArrayList<ItemsDetails> getFilteredGameDetails() {
+        return filteredItemDetails;
     }
 }
 

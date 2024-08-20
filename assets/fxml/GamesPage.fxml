@@ -136,7 +136,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="100.0" prefWidth="719.0" style="-fx-background-color: #111010;">
                <children>
-                  <TextField fx:id="searchTextField" promptText="Search..." style="-fx-text-fill: #888686; -fx-background-color: #1A1A1A; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="searchTextField" promptText="Search..." style="-fx-text-fill: #d9d9d9; -fx-background-color: #1A1A1A; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="20.0" />
                      </font>

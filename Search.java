@@ -5,22 +5,22 @@ import javafx.scene.layout.TilePane;
 public class Search implements Runnable {
     private String searchText;
     private TilePane tilePane;
-    private ArrayList<GameDetails> filteredGameDetailsList;
+    private ArrayList<ItemsDetails> filteredItemDetailsList;
 
-    public Search(String searchText, TilePane tilePane, ArrayList<GameDetails> filteredGameDetailsList) {
+    public Search(String searchText, TilePane tilePane, ArrayList<ItemsDetails> filteredItemDetailsList) {
         setSearchText(searchText);
         setTilePane(tilePane);
-        setFilteredGameDetailsList(filteredGameDetailsList);
+        setFilteredItemDetailsList(filteredItemDetailsList);
     }
 
     @Override
     public void run() {
-        ArrayList<GameView> searchResults = new ArrayList<>();
+        ArrayList<ItemView> searchResults = new ArrayList<>();
 
-        // Iterate over all filtered game details and add matching ones to the results
-        for (GameDetails gameDetails : filteredGameDetailsList) {
-            if (gameDetails.getName().toLowerCase().contains(searchText.toLowerCase())) {
-                searchResults.add(gameDetails.getGameView());
+        // Iterate over all filtered item details and add matching ones to the results
+        for (ItemsDetails itemDetails : filteredItemDetailsList) {
+            if (itemDetails.getName().toLowerCase().contains(searchText.toLowerCase())) {
+                searchResults.add(itemDetails.getItemView());
             }
         }
 
@@ -39,12 +39,12 @@ public class Search implements Runnable {
         this.searchText = searchText;
     }
 
-    public ArrayList<GameDetails> getFilteredGameDetailsList() {
-        return filteredGameDetailsList;
+    public ArrayList<ItemsDetails> getFilteredItemDetailsList() {
+        return filteredItemDetailsList;
     }
 
-    public void setFilteredGameDetailsList(ArrayList<GameDetails> filteredGameDetailsList) {
-        this.filteredGameDetailsList = filteredGameDetailsList;
+    public void setFilteredItemDetailsList(ArrayList<ItemsDetails> filteredItemDetailsList) {
+        this.filteredItemDetailsList = filteredItemDetailsList;
     }
 
     public TilePane getTilePane() {
