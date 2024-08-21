@@ -82,7 +82,7 @@ public class LoginContr extends DBUtils {
 
             // Test code if everything goes well. 
             try {
-                Main.getPageManager().navigateTo(new GamesPage());
+                Main.getPageManager().navigateTo(new GamePage());
                 System.out.println("Hello" + Player.getUsername());
                 System.out.println("XP: " + Player.getXp());
                 System.out.println("Coins: " + Player.getCoins());

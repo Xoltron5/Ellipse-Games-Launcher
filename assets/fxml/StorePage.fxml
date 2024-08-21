@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StorePage">
+   <bottom>
+      <HBox alignment="CENTER" minHeight="50.0" style="-fx-background-color: #1A1A1A;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" text="Copyright © 2024 Ellipse Games, All Rights Reserved" textFill="#888686">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <VBox prefHeight="148.0" prefWidth="950.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" minHeight="50.0" prefWidth="1050.0" spacing="10.0" style="-fx-background-color: #1A1A1A;">
+               <children>
+                  <Label fx:id="appVersionLabel" text="V(N/A)" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <Region fx:id="space1" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="newsLabel" text="NEWS: " textFill="#d9d9d9">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <Region fx:id="space2" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="coinsAmountLabel" text="Coins:  " textFill="#d9d9d9">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <Region fx:id="space3" HBox.hgrow="ALWAYS" />
+                  <Label text="Logout" textFill="#d9d9d9">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="58.0" prefWidth="950.0" spacing="10.0" style="-fx-background-color: #111010; -fx-background-radius: 20;">
+               <children>
+                  <Button fx:id="gamesButton" mnemonicParsing="false" onAction="#gamesButtonClicked" style="-fx-background-color: none; -fx-text-fill: #d9d9d9;" text="Games">
+                     <font>
+                        <Font name="Arial" size="32.0" />
+                     </font>
+                  </Button>
+                  <Region fx:id="space4" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="storeButton" mnemonicParsing="false" onAction="#storeButtonClicked" style="-fx-background-color: none; -fx-text-fill: #d9d9d9;" text="Store">
+                     <font>
+                        <Font name="Arial" size="32.0" />
+                     </font>
+                  </Button>
+                  <Region fx:id="space5" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="inventoryButton" mnemonicParsing="false" onAction="#inventoryButtonClicked" style="-fx-background-color: none; -fx-text-fill: #d9d9d9;" text="Inventory">
+                     <font>
+                        <Font name="Arial" size="32.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="50.0" right="50.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <right>
+      <VBox alignment="TOP_CENTER" minWidth="50.0" prefHeight="502.0" prefWidth="230.0" style="-fx-background-color: #131313; -fx-background-radius: 0 20 20 0;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="50.0" />
+         </BorderPane.margin>
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Users/altst/Downloads/cookie.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="20.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label fx:id="usernameLabel" text="&lt;Item Name&gt;" textFill="#d9d9d9">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="levelLabel" layoutX="90.0" layoutY="203.0" text="&lt;Level Requirment&gt;" textFill="#d9d9d9">
+               <font>
+                  <Font name="Arial" size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: #2AABD4; -fx-background-radius: 10 10 10 10;" text="Equip" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+            <Label fx:id="nextLevelXPLabel" text="&lt;Item Description&gt;" textFill="#d9d9d9">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+         </children></VBox>
+   </right>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="719.0" style="-fx-background-color: #111010; -fx-background-radius: 20 0 0 20;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="100.0" prefWidth="719.0" style="-fx-background-color: #111010;">
+               <children>
+                  <TextField fx:id="searchTextField" promptText="Search..." style="-fx-text-fill: #d9d9d9; -fx-background-color: #1A1A1A; -fx-background-radius: 10;" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Region fx:id="space11" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Region>
+                  <ComboBox fx:id="filtersComboBox" layoutX="580.0" layoutY="42.0" onAction="#filter" prefHeight="43.0" prefWidth="150.0" promptText="All" style="-fx-background-color: #1A1A1A; -fx-font-size: 20; -fx-background-radius: 10;">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" prefHeight="500.0" style="-fx-background-color: #111010; -fx-border-color: #111010; -fx-background: #111010; -fx-background-radius: 20;" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+               <content>
+                  <TilePane fx:id="tilePane" hgap="20.0" minHeight="0.0" minWidth="0.0" prefTileHeight="150.0" prefTileWidth="150.0" style="-fx-background-color: #111010; -fx-background-radius: 20;" vgap="20.0">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </TilePane>
+               </content>
+               <VBox.margin>
+                  <Insets right="10.0" />
+               </VBox.margin>
+            </ScrollPane>
+         </children>
+         <BorderPane.margin>
+            <Insets left="50.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

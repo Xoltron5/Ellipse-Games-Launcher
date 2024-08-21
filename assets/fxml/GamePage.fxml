@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GamesPage">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GamePage">
    <bottom>
       <HBox alignment="CENTER" minHeight="50.0" style="-fx-background-color: #1A1A1A;" BorderPane.alignment="CENTER">
          <children>
@@ -94,29 +95,23 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="58.0" prefWidth="950.0" spacing="10.0" style="-fx-background-color: #111010; -fx-background-radius: 20;">
                <children>
-                  <Label text="Games" textFill="#d9d9d9">
+                  <Button fx:id="gamesButton" mnemonicParsing="false" onAction="#gamesButtonClicked" style="-fx-background-color: none; -fx-text-fill: #d9d9d9;" text="Games">
                      <font>
                         <Font name="Arial" size="32.0" />
                      </font>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Label>
+                  </Button>
                   <Region fx:id="space4" HBox.hgrow="ALWAYS" />
-                  <Label text="Store" textFill="#d9d9d9">
+                  <Button fx:id="storeButton" mnemonicParsing="false" onAction="#storeButtonClicked" style="-fx-background-color: none; -fx-text-fill: #d9d9d9;" text="Store">
                      <font>
                         <Font name="Arial" size="32.0" />
                      </font>
-                  </Label>
+                  </Button>
                   <Region fx:id="space5" HBox.hgrow="ALWAYS" />
-                  <Label text="Inventory" textFill="#d9d9d9">
+                  <Button fx:id="inventoryButton" mnemonicParsing="false" onAction="#inventoryButtonClicked" style="-fx-background-color: none; -fx-text-fill: #d9d9d9;" text="Inventory">
                      <font>
                         <Font name="Arial" size="32.0" />
                      </font>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </Label>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets />

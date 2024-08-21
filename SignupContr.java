@@ -103,7 +103,7 @@ public class SignupContr extends DBUtils {
             
             // Test code if everything goes well. 
             try {
-                GamesPage games = new GamesPage();
+                GamePage games = new GamePage();
                 Main.getPageManager().navigateTo(games);
                 System.out.println("Hello" + Player.getUsername());
                 System.out.println("XP: " + Player.getXp());

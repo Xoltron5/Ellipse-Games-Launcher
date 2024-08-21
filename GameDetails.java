@@ -3,8 +3,6 @@ public class GameDetails extends ItemsDetails {
     private String developer;
     private String description;
 
-    private GameView gameView; 
-
     public GameDetails(long id, String name, String releaseDate, 
     String developer, String description, String iconPath) {
         this.setId(id);
@@ -37,13 +35,5 @@ public class GameDetails extends ItemsDetails {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public GameView getGameView() {
-        return gameView;
-    }
-
-    public void setGameView(GameView gameView) {
-        this.gameView = gameView;
     }
 }
