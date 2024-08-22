@@ -23,7 +23,7 @@ public class Filter implements Runnable {
 
         // Filter based on both the filterItem (genre) and searchText
         for (ItemsDetails itemDetails : itemDetailsList) {
-            boolean matchesFilter = filterItem.equals("All") || itemDetails.getGenresContainer().contains(filterItem);
+            boolean matchesFilter = filterItem.equals("All") || itemDetails.getFilterContentContainer().contains(filterItem);
             boolean matchesSearch = searchText.isEmpty() || itemDetails.getName().toLowerCase().contains(searchText);
 
             if (matchesFilter && matchesSearch) {

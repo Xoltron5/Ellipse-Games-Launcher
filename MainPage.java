@@ -57,13 +57,26 @@ public abstract class MainPage extends Page implements Initializable {
 
     private ArrayList<ItemsDetails> filteredItemDetailsList;
 
-    public abstract void filter(ActionEvent event);
+    public MainPage(String fxmlFilePath, String cssFilePath) {
+        // Initialize file paths
+        setFXMLFilePath(fxmlFilePath);
+        setCSSFilePath(cssFilePath);
+
+        // Use the initialized paths
+        setCSS(this.getClass().getResource(getCSSFilePath()).toExternalForm());
+
+        // Set the paths using the superclass methods
+        setFXMLFilePath(getFXMLFilePath());
+        setCSSFilePath(getCSSFilePath());
+        setCSS(getCSS());
+
+        setFilteredItemDetailsList(new ArrayList<>());
+    }
 
     public void initialSetUp() {
         
         getAppVersionLabel().setText(getAppVersion());
 
-        // Sets the latest news.
         getNewsLabel().setText("Check the new Hot Deals! 🔥");
 
         String currentCoinsText = getCoinsAmountLabel().getText();
@@ -120,6 +133,10 @@ public abstract class MainPage extends Page implements Initializable {
         // Trigger filtering whenever the search text changes
         filter(new ActionEvent());
     }
+
+    protected abstract void initialPageSetUp();
+
+    public abstract void filter(ActionEvent event);
 
     public abstract void gamesButtonClicked(ActionEvent e) throws IOException;
 

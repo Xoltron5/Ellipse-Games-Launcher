@@ -4,10 +4,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class GameDetailsContr extends DBUtils {
-    
     // Query file paths
     private static final String selectGameDetailsQueryPath = "sql/gameDetails/selectGameDetails.sql";
     private static final String selectGameGenresQueryPath = "sql/gameDetails/selectGameGenres.sql";
+    
     // SQL queries 
     private static final String selectGameDetailsQuery = loadSQLFromFile(getSelectGameDetailsQueryPath());
     private static final String selectGameGenresQuery = loadSQLFromFile(getSelectGameGenresQueryPath());
@@ -56,7 +56,7 @@ public class GameDetailsContr extends DBUtils {
                 // Gets each game genre and stores it within a arraylist. 
                 while (genreResultSet.next()) {
                     String genre = genreResultSet.getString("genreName");
-                    gameDetails.getGenresContainer().add(genre);
+                    gameDetails.getFilterContentContainer().add(genre);
                 }
 
                 // Stores the object within a container.

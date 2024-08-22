@@ -4,9 +4,15 @@ public abstract class ItemsDetails {
     private long id;
     private String name;
     private String iconPath; 
-    private ArrayList<String> genresContainer = new ArrayList<>();
+
+    private ArrayList<String> filterContentContainer = new ArrayList<>();
 
     private ItemView itemView;
+
+    public ItemsDetails(long id, String name) {
+        setId(id);
+        setName(name);
+    }
 
     public long getId() {
         return id;
@@ -24,8 +30,8 @@ public abstract class ItemsDetails {
         this.name = name;
     }
 
-    public ArrayList<String> getGenresContainer() {
-        return genresContainer;
+    public ArrayList<String> getFilterContentContainer() {
+        return filterContentContainer;
     }
 
     public ItemView getItemView() {

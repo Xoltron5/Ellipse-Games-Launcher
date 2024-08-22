@@ -7,25 +7,20 @@ import javafx.event.ActionEvent;
 public class StorePage extends MainPage {
 
     public StorePage() {
-        // Initialize file paths
-        setFXMLFilePath("/assets/fxml/StorePage.fxml");
-        setCSSFilePath("/assets/css/StorePage.css");
-
-        // Use the initialized paths
-        setCSS(this.getClass().getResource(getCSSFilePath()).toExternalForm());
-
-        // Set the paths using the superclass methods
-        setFXMLFilePath(getFXMLFilePath());
-        setCSSFilePath(getCSSFilePath());
-        setCSS(getCSS());
-
-        setFilteredItemDetailsList(new ArrayList<>());
+        super("/assets/fxml/StorePage.fxml", "/assets/css/StorePage.css");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        // sets up initial stuff content that's common between all main pages.
+        initialSetUp();
+
     }
+
+    @Override
+    protected void initialPageSetUp() {
+        
+    }    
 
     @Override
     public void displayItems(ArrayList<ItemsDetails> itemDetailsHolder) {
@@ -48,5 +43,5 @@ public class StorePage extends MainPage {
     @Override
     public void inventoryButtonClicked(ActionEvent e) throws IOException {
 
-    }    
+    }
 }

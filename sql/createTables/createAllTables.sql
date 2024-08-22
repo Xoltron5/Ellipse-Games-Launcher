@@ -20,13 +20,13 @@ CREATE TABLE  game (
     iconPath TEXT
 );
 
-
 CREATE TABLE  item (
-    id BIGINT PRIMARY KEY,
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
     gameId BIGINT ,
     name TEXT ,
+    levelReq INT,
     cost INT ,
-    icon TEXT ,
+    iconPath TEXT ,
     description TEXT 
 );
 

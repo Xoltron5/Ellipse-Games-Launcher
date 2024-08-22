@@ -5,8 +5,7 @@ public class GameDetails extends ItemsDetails {
 
     public GameDetails(long id, String name, String releaseDate, 
     String developer, String description, String iconPath) {
-        this.setId(id);
-        this.setName(name);
+        super(id, name);
         this.setReleaseDate(releaseDate);
         this.setDeveloper(developer);
         this.setDescription(description);

@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 
 public class GamePage extends MainPage {
-
     private static final String[] filterContent = {
         "All",
         "Adventure",
@@ -19,19 +18,7 @@ public class GamePage extends MainPage {
     };
     
     public GamePage() {
-        // Initialize file paths
-        setFXMLFilePath("/assets/fxml/GamePage.fxml");
-        setCSSFilePath("/assets/css/GamePage.css");
-
-        // Use the initialized paths
-        setCSS(this.getClass().getResource(getCSSFilePath()).toExternalForm());
-
-        // Set the paths using the superclass methods
-        setFXMLFilePath(getFXMLFilePath());
-        setCSSFilePath(getCSSFilePath());
-        setCSS(getCSS());
-
-        setFilteredItemDetailsList(new ArrayList<>());
+        super("/assets/fxml/GamePage.fxml", "/assets/css/GamePage.css");
     }
 
     @Override
@@ -40,28 +27,8 @@ public class GamePage extends MainPage {
         // sets up initial stuff content that's common between all main pages.
         initialSetUp();
 
-        String currentLevelText = getLevelLabel().getText();
-
-        // Sets the player's username.
-        getUsernameLabel().setText(Player.getUsername());
-
-        // Calculates the player's current level based on their xp.
-        int playersLevel = Player.determineLevel(Player.getXp());
-
-        // Sets the player's current level.
-        getLevelLabel().setText(currentLevelText + playersLevel);
-        
-        // Calculates the player's next level based on their xp.
-        long nextLevelXP = Player.nextLevelXP(Player.getXp());
-        int nextLevel = playersLevel + 1;
-
-        // Sets the player's xp needed for the next level.
-        getNextLevelXPLabel().setText(nextLevelXP + " more xp to Level " + nextLevel);
-
-        // Sets up the filter content
-        getFiltersComboBox().getItems().addAll(getFilterContent());
-
-        displayItems(GameDetailsHolder.getItemDetailsHolder());
+        // sets up the game page content. 
+        initialPageSetUp();
     }
 
     @Override
@@ -85,6 +52,32 @@ public class GamePage extends MainPage {
         // After filtering, set the filtered games to the filteredGameDetailsList for searching
         setFilteredItemDetailsList(filterTask.getFilteredGameDetails());
     }    
+
+    @Override
+    protected void initialPageSetUp() {
+        String currentLevelText = getLevelLabel().getText();
+
+        // Sets the player's username.
+        getUsernameLabel().setText(Player.getUsername());
+
+        // Calculates the player's current level based on their xp.
+        int playersLevel = Player.determineLevel(Player.getXp());
+
+        // Sets the player's current level.
+        getLevelLabel().setText(currentLevelText + playersLevel);
+        
+        // Calculates the player's next level based on their xp.
+        long nextLevelXP = Player.nextLevelXP(Player.getXp());
+        int nextLevel = playersLevel + 1;
+
+        // Sets the player's xp needed for the next level.
+        getNextLevelXPLabel().setText(nextLevelXP + " more xp to Level " + nextLevel);
+
+        // Sets up the filter content
+        getFiltersComboBox().getItems().addAll(getFilterContent());
+
+        displayItems(GameDetailsHolder.getItemDetailsHolder());
+    }
 
     @Override
     public void gamesButtonClicked(ActionEvent e) throws IOException {}
