@@ -35,8 +35,9 @@ public class GameDetailsContr extends DBUtils {
             // Executes the query and stores the result within the result set. 
             resultSet = ps.executeQuery();
 
-            // Query used to get all the game genres 
+            // Query used to get all the game genres.
             ps = connection.prepareStatement(getSelectGameGenresQuery());
+
             while (resultSet.next()) {
                 // Gets all the game details
                 long id = resultSet.getLong("id");
@@ -47,7 +48,8 @@ public class GameDetailsContr extends DBUtils {
                 String iconPath = resultSet.getString("iconPath");
 
                 // Creates and stores the game details within a game details object.
-                GameDetails gameDetails = new GameDetails(id, gameName, releasedDate, developer, description, iconPath);
+                GameDetails gameDetails = new GameDetails(id, gameName, releasedDate, developer,
+                description, iconPath);
 
                 ps.setString(1, gameDetails.getName());
 
@@ -60,7 +62,8 @@ public class GameDetailsContr extends DBUtils {
                 }
 
                 // Stores the object within a container.
-                GameDetailsHolder.getItemDetailsHolder().add(gameDetails);
+                GameDetailsHolder gameDetailsHolder = new GameDetailsHolder();
+                gameDetailsHolder.getEntityDetailsHolder().add(gameDetails);
             }
 
         } catch (SQLException e) {

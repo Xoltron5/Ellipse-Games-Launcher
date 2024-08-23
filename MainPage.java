@@ -16,6 +16,18 @@ import javafx.scene.shape.Rectangle;
 public abstract class MainPage extends Page implements Initializable {
     private static final String APP_VERSION = "V0.0.1";
 
+    private static final String[] filterContent = {
+        "All",
+        "Adventure",
+        "RPG",
+        "Shooter",
+        "Strategy",
+        "Puzzle",
+        "Racing",
+        "Horror",
+        "Sci-Fi"
+    };
+
     @FXML
     private Label usernameLabel;
     
@@ -55,7 +67,7 @@ public abstract class MainPage extends Page implements Initializable {
     @FXML
     private Button inventoryButton;
 
-    private ArrayList<ItemsDetails> filteredItemDetailsList;
+    private ArrayList<EntityDetails> filteredEntityDetailsList;
 
     public MainPage(String fxmlFilePath, String cssFilePath) {
         // Initialize file paths
@@ -70,7 +82,7 @@ public abstract class MainPage extends Page implements Initializable {
         setCSSFilePath(getCSSFilePath());
         setCSS(getCSS());
 
-        setFilteredItemDetailsList(new ArrayList<>());
+        setFilteredEntityDetailsList(new ArrayList<>());
     }
 
     public void initialSetUp() {
@@ -93,24 +105,20 @@ public abstract class MainPage extends Page implements Initializable {
         });
     }
 
-    // Iterates through each item details object held within a holder/container 
+    // Iterates through each entity details object held within a holder/container 
     // and adds the needed info to the image view.
-    public void displayItems(ArrayList<ItemsDetails> itemDetailsHolder) {
-        // Set desired dimensions for the GameView
-        int fitWidth = 150; // Adjust the width as needed
-        int fitHeight = 150; // Adjust the height as needed
-        int cornerRadius = 20; // Radius for the rounded corners
-        
+    public void displayEntitys(ArrayList<EntityDetails> entityDetailsHolder,
+    int fitWidth, int fitHeight, int cornerRadius) {
         // Iterate through all the game details and add them to the TilePane
-        for (ItemsDetails itemsDetails : itemDetailsHolder) {
-            long itemId = itemsDetails.getId();
-            String path = itemsDetails.getIconPath();
-            ItemView itemView = new ItemView(itemId, path);
+        for (EntityDetails entitysDetails : entityDetailsHolder) {
+            long entityId = entitysDetails.getId();
+            String path = entitysDetails.getIconPath();
+            EntityView entityView = new EntityView(entityId, path);
     
             // Set the GameView's fitWidth and fitHeight
-            itemView.setFitWidth(fitWidth);
-            itemView.setFitHeight(fitHeight);
-            itemView.setPreserveRatio(true); // Preserve the image's aspect ratio
+            entityView.setFitWidth(fitWidth);
+            entityView.setFitHeight(fitHeight);
+            entityView.setPreserveRatio(true); // Preserve the image's aspect ratio
     
             // Create a rectangle with rounded corners
             Rectangle clip = new Rectangle(fitWidth, fitHeight);
@@ -118,13 +126,13 @@ public abstract class MainPage extends Page implements Initializable {
             clip.setArcHeight(cornerRadius);
             
             // Set the rectangle as the clip for the GameView
-            itemView.setClip(clip);
+            entityView.setClip(clip);
 
-            itemsDetails.setItemView(itemView);
+            entitysDetails.setEntityView(entityView);
     
-            // Add the itemView to the TilePane
-            getFilteredItemDetailsList().add(itemsDetails);
-            getTilePane().getChildren().add(itemView);
+            // Add the entityView to the TilePane
+            getFilteredEntityDetailsList().add(entitysDetails);
+            getTilePane().getChildren().add(entityView);
         }
     }
 
@@ -200,11 +208,15 @@ public abstract class MainPage extends Page implements Initializable {
         return searchTextField;
     }
 
-    public ArrayList<ItemsDetails> getFilteredItemDetailsList() {
-        return filteredItemDetailsList;
+    public ArrayList<EntityDetails> getFilteredEntityDetailsList() {
+        return filteredEntityDetailsList;
     }
 
-    public void setFilteredItemDetailsList(ArrayList<ItemsDetails> filteredItemDetailsList) {
-        this.filteredItemDetailsList = filteredItemDetailsList;
+    public void setFilteredEntityDetailsList(ArrayList<EntityDetails> filteredEntityDetailsList) {
+        this.filteredEntityDetailsList = filteredEntityDetailsList;
+    }
+
+    public static String[] getFilterContent() {
+        return filterContent;
     }
 }

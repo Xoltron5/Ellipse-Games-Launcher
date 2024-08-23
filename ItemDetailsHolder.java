@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 
-public abstract class ItemDetailsHolder {
-    private static ArrayList<ItemsDetails> itemDetailsHolder = new ArrayList<>();
+public class ItemDetailsHolder extends EntityDetailsHolder {
+    // This ArrayList will be shared among all instances of ItemDetailsHolder
+    private static ArrayList<EntityDetails> itemDetailsHolder = new ArrayList<>();
 
-    public static ArrayList<ItemsDetails> getItemDetailsHolder() {
+    @Override
+    public ArrayList<EntityDetails> getEntityDetailsHolder() {
         return itemDetailsHolder;
     }
 }
-

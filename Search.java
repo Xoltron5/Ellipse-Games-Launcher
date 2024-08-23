@@ -5,22 +5,22 @@ import javafx.scene.layout.TilePane;
 public class Search implements Runnable {
     private String searchText;
     private TilePane tilePane;
-    private ArrayList<ItemsDetails> filteredItemDetailsList;
+    private ArrayList<EntityDetails> filteredEntityDetailsList;
 
-    public Search(String searchText, TilePane tilePane, ArrayList<ItemsDetails> filteredItemDetailsList) {
+    public Search(String searchText, TilePane tilePane, ArrayList<EntityDetails> filteredEntityDetailsList) {
         setSearchText(searchText);
         setTilePane(tilePane);
-        setFilteredItemDetailsList(filteredItemDetailsList);
+        setFilteredEntityDetailsList(filteredEntityDetailsList);
     }
 
     @Override
     public void run() {
-        ArrayList<ItemView> searchResults = new ArrayList<>();
+        ArrayList<EntityView> searchResults = new ArrayList<>();
 
-        // Iterate over all filtered item details and add matching ones to the results
-        for (ItemsDetails itemDetails : filteredItemDetailsList) {
-            if (itemDetails.getName().toLowerCase().contains(searchText.toLowerCase())) {
-                searchResults.add(itemDetails.getItemView());
+        // Iterate over all filtered entity details and add matching ones to the results
+        for (EntityDetails entityDetails : filteredEntityDetailsList) {
+            if (entityDetails.getName().toLowerCase().contains(searchText.toLowerCase())) {
+                searchResults.add(entityDetails.getEntityView());
             }
         }
 
@@ -39,12 +39,12 @@ public class Search implements Runnable {
         this.searchText = searchText;
     }
 
-    public ArrayList<ItemsDetails> getFilteredItemDetailsList() {
-        return filteredItemDetailsList;
+    public ArrayList<EntityDetails> getFilteredEntityDetailsList() {
+        return filteredEntityDetailsList;
     }
 
-    public void setFilteredItemDetailsList(ArrayList<ItemsDetails> filteredItemDetailsList) {
-        this.filteredItemDetailsList = filteredItemDetailsList;
+    public void setFilteredEntityDetailsList(ArrayList<EntityDetails> filteredEntityDetailsList) {
+        this.filteredEntityDetailsList = filteredEntityDetailsList;
     }
 
     public TilePane getTilePane() {

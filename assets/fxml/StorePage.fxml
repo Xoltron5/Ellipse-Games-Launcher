@@ -117,7 +117,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: #2AABD4; -fx-background-radius: 10 10 10 10;" text="Equip" textFill="WHITE">
+            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #D42A2A; -fx-background-radius: 10 10 10 10;" text="Purchase" textFill="WHITE">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>

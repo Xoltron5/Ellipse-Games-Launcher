@@ -5,6 +5,6 @@ SELECT
     genre.name AS genreName 
 FROM game
 INNER JOIN gamegenre
-ON game.id = gamegenre.gameId
-INNER JOIN genre
-ON genre.id = gamegenre.genreId;
+    ON game.id = gamegenre.gameId
+INNER JOIN genre    
+    ON genre.id = gamegenre.genreId;

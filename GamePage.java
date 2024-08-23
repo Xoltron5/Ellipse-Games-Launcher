@@ -5,17 +5,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 
 public class GamePage extends MainPage {
-    private static final String[] filterContent = {
-        "All",
-        "Adventure",
-        "RPG",
-        "Shooter",
-        "Strategy",
-        "Puzzle",
-        "Racing",
-        "Horror",
-        "Sci-Fi"
-    };
     
     public GamePage() {
         super("/assets/fxml/GamePage.fxml", "/assets/css/GamePage.css");
@@ -23,7 +12,6 @@ public class GamePage extends MainPage {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         // sets up initial stuff content that's common between all main pages.
         initialSetUp();
 
@@ -37,7 +25,8 @@ public class GamePage extends MainPage {
         String searchText = getSearchTextField().getText();  // Get the text from the search field
     
         // Acquire the game details holder.
-        ArrayList<ItemsDetails> gameDetailsHolder = GameDetailsHolder.getItemDetailsHolder();
+        GameDetailsHolder gameDetailsHolderMain = new GameDetailsHolder();
+        ArrayList<EntityDetails> gameDetailsHolder = gameDetailsHolderMain.getEntityDetailsHolder();
     
         // Create an instance of Filter and pass the necessary parameters
         Filter filterTask = new Filter(filterItem, searchText, getTilePane(), gameDetailsHolder);
@@ -49,8 +38,8 @@ public class GamePage extends MainPage {
         filterThread.setDaemon(true);
         filterThread.start();
     
-        // After filtering, set the filtered games to the filteredGameDetailsList for searching
-        setFilteredItemDetailsList(filterTask.getFilteredGameDetails());
+        // After filtering, set the filtered games to the filteredEntityDetailsList for searching
+        setFilteredEntityDetailsList(filterTask.getFilteredEntityDetails());
     }    
 
     @Override
@@ -76,7 +65,9 @@ public class GamePage extends MainPage {
         // Sets up the filter content
         getFiltersComboBox().getItems().addAll(getFilterContent());
 
-        displayItems(GameDetailsHolder.getItemDetailsHolder());
+        GameDetailsHolder gameDetailsHolder = new GameDetailsHolder();
+        displayEntitys(gameDetailsHolder.getEntityDetailsHolder(),
+        150,150,20);
     }
 
     @Override
@@ -90,9 +81,5 @@ public class GamePage extends MainPage {
     @Override
     public void inventoryButtonClicked(ActionEvent e) throws IOException {
 
-    }
-
-    public static String[] getFilterContent() {
-        return filterContent;
     }
 }
