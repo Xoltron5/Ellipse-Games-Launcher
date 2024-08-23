@@ -30,7 +30,7 @@ public class Main extends Application {
 
         welcomePage = loader.getController();
         
-        welcomePage.displayErrorMessage("HELLLOOOOO");
+        //welcomePage.displayErrorMessage("HELLLOOOOO");
     }
 
     public static void main(String[] args) {

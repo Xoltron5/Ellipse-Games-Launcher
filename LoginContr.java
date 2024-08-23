@@ -9,14 +9,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class LoginContr extends DBUtils {
-
     // Query file paths 
     private static final String SELECT_PASS_QUERY = "sql/login/selectPass.sql";
     private static final String SELECT_CONTENT_QUERY = "sql/login/selectContent.sql";
+    private static final String SELECT_OWNED_ITEM_QUERY = "sql/getItemsOwned/selectOwnedItems.sql";
 
     // SQL queries (for login) 
     private static String selectPassQuery = loadSQLFromFile(getSelectPassQuery());
     private static String selectContentQuery = loadSQLFromFile(getSelectContentQuery());
+    private static String selectOwnedItemsQuery = loadSQLFromFile(getSelectOwnedItemQuery());
 
     // This method is responsible for performing extra checks and logging the user in.
     // Along with connecting to the database. 
@@ -80,6 +81,16 @@ public class LoginContr extends DBUtils {
                 Player.setCoins(resultSet.getInt("coins"));
             }
 
+            ps = connection.prepareStatement(selectOwnedItemsQuery);
+
+            ps.setString(1, username);
+
+            resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                Player.getInventory().add(resultSet.getString("name"));
+            }
+
             // Test code if everything goes well. 
             try {
                 Main.getPageManager().navigateTo(new GamePage());
@@ -108,5 +119,9 @@ public class LoginContr extends DBUtils {
 
     public static String getSelectContentQuery() {
         return SELECT_CONTENT_QUERY;
+    }
+
+    public static String getSelectOwnedItemQuery() {
+        return SELECT_OWNED_ITEM_QUERY;
     }
 }

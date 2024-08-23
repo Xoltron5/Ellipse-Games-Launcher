@@ -2,8 +2,8 @@ import javafx.scene.input.MouseEvent;
 
 public class GameView extends EntityView {
     public GameView(long id, String filePath,
-    EntityDetails entityDetails) {
-        super(id, filePath, entityDetails);
+    EntityDetails entityDetails, MainPage currentPage) {
+        super(id, filePath, entityDetails, currentPage);
     }
 
     @Override

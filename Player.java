@@ -1,7 +1,11 @@
+import java.util.ArrayList;
+
 public class Player {    
     private static String username;
     private static long xp;
     private static long coins; 
+    private static ArrayList<String> inventory = new ArrayList<>();
+    private static ArrayList<String> purchasedItems = new ArrayList<>();
 
     private final static long BASE_XP = 100;
 
@@ -39,5 +43,17 @@ public class Player {
 
     public static void setXp(long xp) {
         Player.xp = xp;
+    }
+
+    public static ArrayList<String> getInventory() {
+        return inventory;
+    }
+    
+    public static ArrayList<String> getPurchasedItems() {
+        return purchasedItems;
+    }
+
+    public static long getBaseXp() {
+        return BASE_XP;
     }
 }

@@ -44,7 +44,7 @@
                      </font>
                   </Label>
                   <Region fx:id="space2" HBox.hgrow="ALWAYS" />
-                  <Label fx:id="coinsAmountLabel" text="Coins:  " textFill="#d9d9d9">
+                  <Label fx:id="playerNameLabel" text="Player Name" textFill="#d9d9d9">
                      <font>
                         <Font name="Arial" size="22.0" />
                      </font>
@@ -93,7 +93,7 @@
             <Insets right="50.0" />
          </BorderPane.margin>
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="itemView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../Users/altst/Downloads/cookie.png" />
                </image>
@@ -101,7 +101,7 @@
                   <Insets bottom="10.0" top="20.0" />
                </VBox.margin>
             </ImageView>
-            <Label fx:id="usernameLabel" text="&lt;Item Name&gt;" textFill="#d9d9d9">
+            <Label fx:id="itemNameLabel" textFill="#d9d9d9">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -109,7 +109,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="levelLabel" layoutX="90.0" layoutY="203.0" text="&lt;Level Requirment&gt;" textFill="#d9d9d9">
+            <Label fx:id="levelReqLabel" layoutX="90.0" layoutY="203.0" textFill="#d9d9d9">
                <font>
                   <Font name="Arial" size="22.0" />
                </font>
@@ -117,7 +117,12 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #D42A2A; -fx-background-radius: 10 10 10 10;" text="Purchase" textFill="WHITE">
+            <Label fx:id="costLabel" layoutX="26.0" layoutY="228.0" textFill="#d9d9d9">
+               <font>
+                  <Font name="Arial" size="22.0" />
+               </font>
+            </Label>
+            <Button fx:id="actionButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #D42A2A; -fx-background-radius: 10 10 10 10;" text="Purchase" textFill="WHITE" visible="false">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -125,12 +130,36 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
-            <Label fx:id="nextLevelXPLabel" text="&lt;Item Description&gt;" textFill="#d9d9d9">
+            <Label fx:id="itemDescLabel" prefWidth="220.0" textFill="#d9d9d9" wrapText="true">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets />
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="errorlabel" layoutX="12.0" layoutY="448.0" textFill="RED">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="currentLevelLabel" layoutX="50.0" layoutY="322.0" prefWidth="228.0" textFill="#d9d9d9">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="currentCoinsLabel" layoutX="12.0" layoutY="480.0" prefWidth="228.0" textFill="#d9d9d9">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
                </VBox.margin>
             </Label>
          </children></VBox>

@@ -39,10 +39,9 @@ CREATE TABLE  played (
     FOREIGN KEY (gameId) REFERENCES game(id)
 );
 
-CREATE TABLE  playerItem (
+CREATE TABLE playerItem (
     playerId BIGINT,
     itemId BIGINT,
-    PRIMARY KEY (playerId, itemId),
     FOREIGN KEY (playerId) REFERENCES player(id),
     FOREIGN KEY (itemId) REFERENCES item(id)
 );

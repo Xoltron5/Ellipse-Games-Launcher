@@ -3,8 +3,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 public class GamePage extends MainPage {
+
+    
+    @FXML
+    private Label coinsAmountLabel;
     
     public GamePage() {
         super("/assets/fxml/GamePage.fxml", "/assets/css/GamePage.css");
@@ -17,6 +23,10 @@ public class GamePage extends MainPage {
 
         // sets up the game page content. 
         initialPageSetUp();
+
+        for (String itemString : Player.getInventory()) {
+            System.out.println(itemString);
+        }
     }
 
     @Override
@@ -62,12 +72,17 @@ public class GamePage extends MainPage {
         // Sets the player's xp needed for the next level.
         getNextLevelXPLabel().setText(nextLevelXP + " more xp to Level " + nextLevel);
 
+        String currentCoinsText = getCoinsAmountLabel().getText();
+
+        // Sets the player's coins.
+        getCoinsAmountLabel().setText(currentCoinsText + Long.toString(Player.getCoins()));
+
         // Sets up the filter content
         getFiltersComboBox().getItems().addAll(getFilterContent());
 
         GameDetailsHolder gameDetailsHolder = new GameDetailsHolder();
         displayEntitys(gameDetailsHolder.getEntityDetailsHolder(),
-        150,150,20, "Game");
+        150,150,20, "Game", null);
     }
 
     @Override
@@ -81,5 +96,9 @@ public class GamePage extends MainPage {
     @Override
     public void inventoryButtonClicked(ActionEvent e) throws IOException {
 
+    }
+
+    public Label getCoinsAmountLabel() {
+        return coinsAmountLabel;
     }
 }

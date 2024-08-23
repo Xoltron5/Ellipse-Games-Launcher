@@ -29,6 +29,9 @@ public abstract class MainPage extends Page implements Initializable {
     };
 
     @FXML
+    private Label playerNameLabel;
+
+    @FXML
     private Label usernameLabel;
     
     @FXML
@@ -56,7 +59,7 @@ public abstract class MainPage extends Page implements Initializable {
     private Label appVersionLabel;
 
     @FXML
-    private Label coinsAmountLabel;
+    private Label errorlabel;
 
     @FXML
     private Button gamesButton;
@@ -87,14 +90,11 @@ public abstract class MainPage extends Page implements Initializable {
 
     public void initialSetUp() {
         
+        getPlayerNameLabel().setText(Player.getUsername());
+
         getAppVersionLabel().setText(getAppVersion());
 
         getNewsLabel().setText("Check the new Hot Deals! 🔥");
-
-        String currentCoinsText = getCoinsAmountLabel().getText();
-
-        // Sets the player's coins.
-        getCoinsAmountLabel().setText(currentCoinsText + Long.toString(Player.getCoins()));
 
         // Attach the listener to the searchTextField
         getSearchTextField().textProperty().addListener(new ChangeListener<String>() {
@@ -108,14 +108,15 @@ public abstract class MainPage extends Page implements Initializable {
     // Iterates through each entity details object held within a holder/container 
     // and adds the needed info to the image view.
     public void displayEntitys(ArrayList<EntityDetails> entityDetailsHolder,
-    int fitWidth, int fitHeight, int cornerRadius, String typeOfEntity) {
+    int fitWidth, int fitHeight, int cornerRadius, String typeOfEntity,
+    MainPage currentPage) {
         // Iterate through all the entity details and add them to the TilePane
         for (EntityDetails entitysDetails : entityDetailsHolder) {
             long entityId = entitysDetails.getId();
             String path = entitysDetails.getIconPath();
     
             EntityView entityView = createView(entityId, path, typeOfEntity,
-            entitysDetails); 
+            entitysDetails, currentPage); 
 
             // Set the GameView's fitWidth and fitHeight
             entityView.setFitWidth(fitWidth);
@@ -146,18 +147,18 @@ public abstract class MainPage extends Page implements Initializable {
     }
 
     private EntityView createView(long entityId, String path, String typeOfEntity,
-    EntityDetails entityDetails) {
+    EntityDetails entityDetails, MainPage currentPage) {
         switch (typeOfEntity) {
             case "Game":
                 GameDetails gameDetails = (GameDetails)entityDetails;
-                GameView gameView = new GameView(entityId, path, gameDetails);
+                GameView gameView = new GameView(entityId, path, gameDetails, currentPage);
                 return gameView;
             case "Item":
                 ItemDetails itemDetails = (ItemDetails)entityDetails;
-                ItemView itemView = new ItemView(entityId, path, itemDetails);
+                ItemView itemView = new ItemView(entityId, path, itemDetails, currentPage);
                 return itemView;
             default:
-                EntityView entityView = new EntityView(entityId, path, entityDetails);
+                EntityView entityView = new EntityView(entityId, path, entityDetails, currentPage);
                 return entityView;
         }
     }
@@ -184,10 +185,6 @@ public abstract class MainPage extends Page implements Initializable {
 
     public Label getAppVersionLabel() {
         return appVersionLabel;
-    }
-
-    public Label getCoinsAmountLabel() {
-        return coinsAmountLabel;
     }
 
     public TilePane getTilePane() {
@@ -244,5 +241,13 @@ public abstract class MainPage extends Page implements Initializable {
 
     public static String[] getFilterContent() {
         return filterContent;
+    }
+
+    public Label getPlayerNameLabel() {
+        return playerNameLabel;
+    }
+
+    public Label getErrorlabel() {
+        return errorlabel;
     }
 }

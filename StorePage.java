@@ -4,12 +4,35 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 public class StorePage extends MainPage {
 
     @FXML
-    private VBox displayPanelVBox;
+    private ImageView itemView;
+
+    @FXML
+    private Label itemNameLabel;
+
+    @FXML
+    private Label levelReqLabel;
+
+    @FXML
+    private Label costLabel;
+
+    @FXML
+    private Button actionButton;
+
+    @FXML 
+    private Label itemDescLabel;
+
+    @FXML
+    private Label currentLevelLabel;
+
+    @FXML
+    private Label currentCoinsLabel;
 
     public StorePage() {
         super("/assets/fxml/StorePage.fxml", "/assets/css/StorePage.css");
@@ -17,6 +40,7 @@ public class StorePage extends MainPage {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
         // sets up initial stuff content that's common between all main pages.
         initialSetUp();
 
@@ -31,7 +55,8 @@ public class StorePage extends MainPage {
 
         ItemDetailsHolder itemDetailsHolder = new ItemDetailsHolder();
         displayEntitys(itemDetailsHolder.getEntityDetailsHolder(),
-        100, 100, 0, "Item");
+        100, 100, 0, "Item",
+        this);
     }    
 
     @Override
@@ -69,4 +94,68 @@ public class StorePage extends MainPage {
     public void inventoryButtonClicked(ActionEvent e) throws IOException {
 
     }
+
+    public ImageView getItemView() {
+        return itemView;
+    }
+    
+    public void setItemView(ImageView itemView) {
+        this.itemView = itemView;
+    }
+    
+    public Label getItemNameLabel() {
+        return itemNameLabel;
+    }
+    
+    public void setItemNameLabel(Label itemNameLabel) {
+        this.itemNameLabel = itemNameLabel;
+    }
+    
+    public Label getLevelReqLabel() {
+        return levelReqLabel;
+    }
+    
+    public void setLevelReqLabel(Label levelReqLabel) {
+        this.levelReqLabel = levelReqLabel;
+    }
+    
+    public Label getCostLabel() {
+        return costLabel;
+    }
+    
+    public void setCostLabel(Label costLabel) {
+        this.costLabel = costLabel;
+    }
+    
+    public Button getActionButton() {
+        return actionButton;
+    }
+    
+    public void setActionButton(Button actionButton) {
+        this.actionButton = actionButton;
+    }
+    
+    public Label getItemDescLabel() {
+        return itemDescLabel;
+    }
+    
+    public void setItemDescLabel(Label itemDescLabel) {
+        this.itemDescLabel = itemDescLabel;
+    }
+    
+    public Label getCurrentLevelLabel() {
+        return currentLevelLabel;
+    }
+    
+    public void setCurrentLevelLabel(Label currentLevelLabel) {
+        this.currentLevelLabel = currentLevelLabel;
+    }
+    
+    public Label getCurrentCoinsLabel() {
+        return currentCoinsLabel;
+    }
+    
+    public void setCurrentCoinsLabel(Label currentCoinsLabel) {
+        this.currentCoinsLabel = currentCoinsLabel;
+    }    
 }
