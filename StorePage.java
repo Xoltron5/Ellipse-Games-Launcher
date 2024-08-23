@@ -3,8 +3,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.layout.VBox;
 
 public class StorePage extends MainPage {
+
+    @FXML
+    private VBox displayPanelVBox;
 
     public StorePage() {
         super("/assets/fxml/StorePage.fxml", "/assets/css/StorePage.css");

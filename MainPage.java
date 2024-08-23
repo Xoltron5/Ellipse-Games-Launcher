@@ -114,7 +114,8 @@ public abstract class MainPage extends Page implements Initializable {
             long entityId = entitysDetails.getId();
             String path = entitysDetails.getIconPath();
     
-            EntityView entityView = createView(entityId, path, typeOfEntity); 
+            EntityView entityView = createView(entityId, path, typeOfEntity,
+            entitysDetails); 
 
             // Set the GameView's fitWidth and fitHeight
             entityView.setFitWidth(fitWidth);
@@ -144,16 +145,19 @@ public abstract class MainPage extends Page implements Initializable {
         }
     }
 
-    private EntityView createView(long entityId, String path, String typeOfEntity) {
+    private EntityView createView(long entityId, String path, String typeOfEntity,
+    EntityDetails entityDetails) {
         switch (typeOfEntity) {
             case "Game":
-                GameView gameView = new GameView(entityId, path);
+                GameDetails gameDetails = (GameDetails)entityDetails;
+                GameView gameView = new GameView(entityId, path, gameDetails);
                 return gameView;
             case "Item":
-                ItemView itemView = new ItemView(entityId, path);
+                ItemDetails itemDetails = (ItemDetails)entityDetails;
+                ItemView itemView = new ItemView(entityId, path, itemDetails);
                 return itemView;
             default:
-                EntityView entityView = new EntityView(entityId, path);
+                EntityView entityView = new EntityView(entityId, path, entityDetails);
                 return entityView;
         }
     }

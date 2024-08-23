@@ -88,7 +88,7 @@
       </VBox>
    </top>
    <right>
-      <VBox alignment="TOP_CENTER" minWidth="50.0" prefHeight="502.0" prefWidth="230.0" style="-fx-background-color: #131313; -fx-background-radius: 0 20 20 0;" BorderPane.alignment="CENTER">
+      <VBox fx:id="displayPanelVBox" alignment="TOP_CENTER" minWidth="50.0" prefHeight="502.0" prefWidth="230.0" style="-fx-background-color: #131313; -fx-background-radius: 0 20 20 0;" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets right="50.0" />
          </BorderPane.margin>
