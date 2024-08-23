@@ -26,7 +26,7 @@ public class StorePage extends MainPage {
 
         ItemDetailsHolder itemDetailsHolder = new ItemDetailsHolder();
         displayEntitys(itemDetailsHolder.getEntityDetailsHolder(),
-        100, 100, 0);
+        100, 100, 0, "Item");
     }    
 
     @Override

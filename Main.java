@@ -24,15 +24,6 @@ public class Main extends Application {
 
         ItemDetailsContr.loadItemDetails();
 
-        GameDetailsHolder gameDetailsHolder = new GameDetailsHolder();
-        ItemDetailsHolder itemDetailsHolder = new ItemDetailsHolder();
-
-        System.out.println(gameDetailsHolder.getEntityDetailsHolder().size());
-        System.out.println(gameDetailsHolder.getEntityDetailsHolder().get(0).getName());
-        System.out.println("------------------------------");
-        System.out.println(itemDetailsHolder.getEntityDetailsHolder().size());
-        System.out.println(itemDetailsHolder.getEntityDetailsHolder().get(0).getName());
-
         Welcome welcomePage = new Welcome();
         
         FXMLLoader loader = pageManager.navigateTo(welcomePage);

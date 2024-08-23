@@ -67,7 +67,7 @@ public class GamePage extends MainPage {
 
         GameDetailsHolder gameDetailsHolder = new GameDetailsHolder();
         displayEntitys(gameDetailsHolder.getEntityDetailsHolder(),
-        150,150,20);
+        150,150,20, "Game");
     }
 
     @Override

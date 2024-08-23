@@ -108,13 +108,14 @@ public abstract class MainPage extends Page implements Initializable {
     // Iterates through each entity details object held within a holder/container 
     // and adds the needed info to the image view.
     public void displayEntitys(ArrayList<EntityDetails> entityDetailsHolder,
-    int fitWidth, int fitHeight, int cornerRadius) {
-        // Iterate through all the game details and add them to the TilePane
+    int fitWidth, int fitHeight, int cornerRadius, String typeOfEntity) {
+        // Iterate through all the entity details and add them to the TilePane
         for (EntityDetails entitysDetails : entityDetailsHolder) {
             long entityId = entitysDetails.getId();
             String path = entitysDetails.getIconPath();
-            EntityView entityView = new EntityView(entityId, path);
     
+            EntityView entityView = createView(entityId, path, typeOfEntity); 
+
             // Set the GameView's fitWidth and fitHeight
             entityView.setFitWidth(fitWidth);
             entityView.setFitHeight(fitHeight);
@@ -125,14 +126,35 @@ public abstract class MainPage extends Page implements Initializable {
             clip.setArcWidth(cornerRadius);
             clip.setArcHeight(cornerRadius);
             
-            // Set the rectangle as the clip for the GameView
+            // Set the rectangle as the clip for the EntityView
             entityView.setClip(clip);
 
             entitysDetails.setEntityView(entityView);
     
-            // Add the entityView to the TilePane
             getFilteredEntityDetailsList().add(entitysDetails);
-            getTilePane().getChildren().add(entityView);
+            if (entityView instanceof GameView) {
+                GameView gameView = (GameView)entityView;
+                getTilePane().getChildren().add(gameView);
+            } else if (entityView instanceof ItemView) {
+                ItemView itemView = (ItemView)entityView;
+                getTilePane().getChildren().add(itemView);
+            } else { // Add the entityView to the TilePane
+                getTilePane().getChildren().add(entityView);
+            }
+        }
+    }
+
+    private EntityView createView(long entityId, String path, String typeOfEntity) {
+        switch (typeOfEntity) {
+            case "Game":
+                GameView gameView = new GameView(entityId, path);
+                return gameView;
+            case "Item":
+                ItemView itemView = new ItemView(entityId, path);
+                return itemView;
+            default:
+                EntityView entityView = new EntityView(entityId, path);
+                return entityView;
         }
     }
 
