@@ -1,12 +1,17 @@
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashMap;
+import java.util.Random;
+
 import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 
 public class SignupContr extends DBUtils {
 
@@ -85,6 +90,10 @@ public class SignupContr extends DBUtils {
             String newDateOfBirth = DateConvertUtil.convertDate(DateConvertUtil.getFormatType1(), dateOfBirth);
             String hashedPassword = hashPassword(password);
 
+            String randomPfpPath = "assets/images/default_pfps/" + chooseProfile();
+            Image profilePicture = new Image(randomPfpPath);
+            byte[] profilePicBytes = readImage(randomPfpPath);
+
             // Binds the parameters to the prepared statement. 
             psInsert.setString(1, username);
             psInsert.setString(2, email);
@@ -92,6 +101,7 @@ public class SignupContr extends DBUtils {
             psInsert.setString(4, hashedPassword);
             psInsert.setDouble(5, START_COINS); // User starts off with 0 coins when they sign up!
             psInsert.setDouble(6, START_XP); // User starts off with 0 xp when they sign up!
+            psInsert.setBytes(7, profilePicBytes); // Stores the default profile picture in the database
 
             // Executes the Query. 
             psInsert.executeUpdate();
@@ -100,6 +110,7 @@ public class SignupContr extends DBUtils {
             Player.setUsername(username);
             Player.setXp(START_XP);
             Player.setCoins(START_COINS);
+            Player.setPlayerProfileIcon(profilePicture);
             
             // Test code if everything goes well. 
             try {
@@ -126,6 +137,41 @@ public class SignupContr extends DBUtils {
         }
     }
 
+    public static String chooseProfile() {
+        int defaultProfilePicturesAmount = NumOfSubPaths("assets/images/default_pfps/");
+        Random rand = new Random();
+        
+        // Generate a random integer between 1 (inclusive) and 6 (inclusive)
+        int randomNumber = rand.nextInt(defaultProfilePicturesAmount) + 1;
+
+        return "pfp" + randomNumber + ".png";
+    }
+
+        public static int NumOfSubPaths(String path) {
+        String directoryPath = path;  // Specify your directory path here
+
+        File directory = new File(directoryPath);
+        if (directory.isDirectory()) {
+            String[] items = directory.list();
+            if (items != null) {
+                return items.length;
+            } else {
+                return -1;  // Return -1 if an error occurs
+            }
+        } else {
+            return -1;  // Return -1 if the path is not a directory
+        }
+    }
+    
+    public static byte[] readImage(String filePath) throws IOException {
+        File file = new File(filePath);
+        FileInputStream fis = new FileInputStream(file);
+        byte[] imageBytes = new byte[(int) file.length()];
+        fis.read(imageBytes);
+        fis.close();
+        return imageBytes;
+    }
+    
     public static String getEmailTaken() {
         return EMAIL_TAKEN;
     }

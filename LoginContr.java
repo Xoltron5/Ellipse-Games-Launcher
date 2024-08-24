@@ -1,3 +1,4 @@
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,6 +8,7 @@ import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 
 public class LoginContr extends DBUtils {
     // Query file paths 
@@ -76,9 +78,12 @@ public class LoginContr extends DBUtils {
             resultSet = ps.executeQuery();
 
             Player.setUsername(username);
+
             while (resultSet.next()) {
                 Player.setXp(resultSet.getInt("xp"));
                 Player.setCoins(resultSet.getInt("coins"));
+                Image image = loadImageFromBytes(resultSet.getBytes("icon"));
+                Player.setPlayerProfileIcon(image);
             }
 
             ps = connection.prepareStatement(selectOwnedItemsQuery);
@@ -111,6 +116,14 @@ public class LoginContr extends DBUtils {
             closePs(ps);
             closeConnection(connection);
         }
+    }
+
+    public static Image loadImageFromBytes(byte[] imageBytes) {
+        if (imageBytes != null) {
+            ByteArrayInputStream bais = new ByteArrayInputStream(imageBytes);
+            return new Image(bais);
+        }
+        return null;
     }
 
     public static String getSelectPassQuery() {

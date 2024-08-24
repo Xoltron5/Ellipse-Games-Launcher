@@ -1,1 +1,1 @@
-INSERT INTO player (username, email, dateOfBirth, password, coins, xp) VALUES (?, ?, ?, ?, ?, ?);
+INSERT INTO player (username, email, dateOfBirth, password, coins, xp, icon) VALUES (?, ?, ?, ?, ?, ?, ?);

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import javafx.scene.image.Image;
 
 public class Player {    
     private static String username;
@@ -6,6 +7,8 @@ public class Player {
     private static long coins; 
     private static ArrayList<String> inventory = new ArrayList<>();
     private static ArrayList<String> purchasedItems = new ArrayList<>();
+
+    private static Image PlayerProfileIcon;
 
     private final static long BASE_XP = 100;
 
@@ -55,5 +58,13 @@ public class Player {
 
     public static long getBaseXp() {
         return BASE_XP;
+    }
+
+    public static Image getPlayerProfileIcon() {
+        return PlayerProfileIcon;
+    }
+
+    public static void setPlayerProfileIcon(Image playerProfileIcon) {
+        PlayerProfileIcon = playerProfileIcon;
     }
 }
