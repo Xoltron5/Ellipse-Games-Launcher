@@ -43,6 +43,15 @@ public class ItemView extends EntityView {
             // Link the action button to the handlePurchase method
             storePage.getActionButton().setOnMouseClicked(e -> handlePurchase(itemDetails));
         }
+        if (getCurrentPage() instanceof InventoryPage) {
+            InventoryPage inventoryPage = (InventoryPage)getCurrentPage();
+            inventoryPage.getErrorlabel().setText("");
+            inventoryPage.getItemView().setImage(new Image(itemDetails.getIconPath()));
+            inventoryPage.getItemNameLabel().setText(itemDetails.getName());
+            inventoryPage.getLevelReqLabel().setText("Level: " + itemDetails.getLevelReq());
+            inventoryPage.getCostLabel().setText("Coins: " + itemDetails.getCost());
+            inventoryPage.getItemDescLabel().setText(itemDetails.getDescription());
+        }
     }
 
     private void handlePurchase(ItemDetails itemDetails) {
@@ -72,6 +81,7 @@ public class ItemView extends EntityView {
 
         
         Player.getPurchasedItems().add(itemDetails.getName());
+        Player.getInventory().add(itemDetails.getName());
         storePage.getActionButton().setText("Owned");
         storePage.getActionButton().setStyle("-fx-background-color: #D45D2A");
     }

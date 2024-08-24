@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 
-public class StorePage extends MainPage {
+public class InventoryPage extends MainPage {
 
     @FXML
     private ImageView itemView;
@@ -34,33 +34,41 @@ public class StorePage extends MainPage {
     @FXML
     private Label currentCoinsLabel;
 
-    public StorePage() {
-        super("/assets/fxml/StorePage.fxml", "/assets/css/StorePage.css");
+    public InventoryPage() {
+        super("/assets/fxml/InventoryPage.fxml", "/assets/css/InventoryPage.css");
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        
+    public void initialize(URL arg0, ResourceBundle arg1) {
         // sets up initial stuff content that's common between all main pages.
         initialSetUp();
 
-        // sets up the store page content. 
+        // sets up the game page content. 
         initialPageSetUp();
     }
 
     @Override
     protected void initialPageSetUp() {
         ItemDetailsHolder itemDetailsHolder = new ItemDetailsHolder();
-        displayEntitys(itemDetailsHolder.getEntityDetailsHolder(),
+        displayInventory(itemDetailsHolder.getEntityDetailsHolder(),
         100, 100, 0, "Item",
         this);
-    }    
-
-    public void displayEntitys(ArrayList<EntityDetails> entityDetailsHolder,
+    }
+    
+    // Iterates through each entity details object held within a holder/container 
+    // and adds the needed info to the image view.
+    public void displayInventory(ArrayList<EntityDetails> entityDetailsHolder,
     int fitWidth, int fitHeight, int cornerRadius, String typeOfEntity,
     MainPage currentPage) {
+        boolean found = false;
         // Iterate through all the entity details and add them to the TilePane
         for (EntityDetails entitysDetails : entityDetailsHolder) {
+            // Iterate through all of the players items and check if it is found
+            for (String playerItems : Player.getInventory()) {
+                if (entitysDetails.getName().equals(playerItems)) found = true;
+            }
+            // if not found continue. 
+            if (!found) continue;
             long entityId = entitysDetails.getId();
             String path = entitysDetails.getIconPath();
     
@@ -92,6 +100,7 @@ public class StorePage extends MainPage {
             } else { // Add the entityView to the TilePane
                 getTilePane().getChildren().add(entityView);
             }
+            found = false; // reset found back to false. 
         }
     }
 
@@ -103,9 +112,18 @@ public class StorePage extends MainPage {
         // Acquire the item details holder.
         ItemDetailsHolder itemDetailsHolderMain = new ItemDetailsHolder();
         ArrayList<EntityDetails> itemDetailsHolder = itemDetailsHolderMain.getEntityDetailsHolder();
-    
+        ArrayList<EntityDetails> tmpHolder = new ArrayList<>();
+
+        for (EntityDetails entityDetails : itemDetailsHolder) {
+            for (String playerItems : Player.getInventory()) {
+                if (entityDetails.getName().equals(playerItems)) {
+                    tmpHolder.add(entityDetails);
+                }
+            }
+        }
+        
         // Create an instance of Filter and pass the necessary parameters
-        Filter filterTask = new Filter(filterItem, searchText, getTilePane(), itemDetailsHolder);
+        Filter filterTask = new Filter(filterItem, searchText, getTilePane(), tmpHolder);
     
         // Start a new thread with the Filter
         Thread filterThread = new Thread(filterTask);
@@ -116,8 +134,8 @@ public class StorePage extends MainPage {
     
         // After filtering, set the filtered games to the filteredEntityDetailsList for searching
         setFilteredEntityDetailsList(filterTask.getFilteredEntityDetails());
-    } 
-
+    }
+    
     public ImageView getItemView() {
         return itemView;
     }
@@ -180,5 +198,5 @@ public class StorePage extends MainPage {
     
     public void setCurrentCoinsLabel(Label currentCoinsLabel) {
         this.currentCoinsLabel = currentCoinsLabel;
-    }    
+    } 
 }

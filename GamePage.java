@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -23,10 +22,6 @@ public class GamePage extends MainPage {
 
         // sets up the game page content. 
         initialPageSetUp();
-
-        for (String itemString : Player.getInventory()) {
-            System.out.println(itemString);
-        }
     }
 
     @Override
@@ -83,19 +78,6 @@ public class GamePage extends MainPage {
         GameDetailsHolder gameDetailsHolder = new GameDetailsHolder();
         displayEntitys(gameDetailsHolder.getEntityDetailsHolder(),
         150,150,20, "Game", null);
-    }
-
-    @Override
-    public void gamesButtonClicked(ActionEvent e) throws IOException {}
-
-    @Override
-    public void storeButtonClicked(ActionEvent e) throws IOException {
-        Main.getPageManager().navigateTo(new StorePage());
-    }
-
-    @Override
-    public void inventoryButtonClicked(ActionEvent e) throws IOException {
-
     }
 
     public Label getCoinsAmountLabel() {

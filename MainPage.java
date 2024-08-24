@@ -89,12 +89,14 @@ public abstract class MainPage extends Page implements Initializable {
     }
 
     public void initialSetUp() {
-        
         getPlayerNameLabel().setText(Player.getUsername());
 
         getAppVersionLabel().setText(getAppVersion());
 
         getNewsLabel().setText("Check the new Hot Deals! 🔥");
+
+        // Sets up the filter content
+        getFiltersComboBox().getItems().addAll(getFilterContent());
 
         // Attach the listener to the searchTextField
         getSearchTextField().textProperty().addListener(new ChangeListener<String>() {
@@ -146,7 +148,7 @@ public abstract class MainPage extends Page implements Initializable {
         }
     }
 
-    private EntityView createView(long entityId, String path, String typeOfEntity,
+    public EntityView createView(long entityId, String path, String typeOfEntity,
     EntityDetails entityDetails, MainPage currentPage) {
         switch (typeOfEntity) {
             case "Game":
@@ -173,11 +175,17 @@ public abstract class MainPage extends Page implements Initializable {
 
     public abstract void filter(ActionEvent event);
 
-    public abstract void gamesButtonClicked(ActionEvent e) throws IOException;
+    public void gamesButtonClicked(ActionEvent e) throws IOException {
+        Main.getPageManager().navigateTo(new GamePage());
+    };
 
-    public abstract void storeButtonClicked(ActionEvent e) throws IOException;
+    public void storeButtonClicked(ActionEvent e) throws IOException { 
+        Main.getPageManager().navigateTo(new StorePage());
+    };
 
-    public abstract void inventoryButtonClicked(ActionEvent e) throws IOException;
+    public void inventoryButtonClicked(ActionEvent e) throws IOException {
+        Main.getPageManager().navigateTo(new InventoryPage());
+    };
     
     public static String getAppVersion() {
         return APP_VERSION;
