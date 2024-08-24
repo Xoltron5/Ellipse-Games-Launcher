@@ -10,6 +10,8 @@ public class Player {
     private static ArrayList<Long> inventoryItemsId = new ArrayList<>();
     private static ArrayList<String> purchasedItems = new ArrayList<>();
 
+    static boolean saveData = false; 
+
     private static BufferedImage PlayerProfileIcon;
 
     private final static long BASE_XP = 100;
@@ -93,5 +95,4 @@ public class Player {
     public static void setPurchasedItems(ArrayList<String> purchasedItems) {
         Player.purchasedItems = purchasedItems;
     }
-    
 }

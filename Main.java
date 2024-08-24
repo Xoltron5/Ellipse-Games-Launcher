@@ -41,6 +41,11 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
+        if (Player.saveData) {
+            System.out.println("Data saving!");
+            DBUtils.savePlayerData();
+        }
     }
 
     public static Stage getStage() {

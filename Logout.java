@@ -34,10 +34,13 @@ public class Logout extends Page {
 
         DBUtils.savePlayerData();
 
+        // clean old data
         Player.setInventory(new ArrayList<String>());
         Player.setInventoryItemsId(new ArrayList<Long>());
         Player.setPurchasedItems(new ArrayList<String>());
-        
+
+        Player.saveData = false;
+
         Main.getPageManager().clearPageStack();
         Main.getPageManager().navigateTo(new Welcome());
     }

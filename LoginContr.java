@@ -114,6 +114,9 @@ public class LoginContr extends DBUtils {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            Player.saveData = true;
+
         } catch (CommunicationsException  e) {
             System.err.println("Failed to establish connection: " + e.getMessage());
             serviceDown(new Login());

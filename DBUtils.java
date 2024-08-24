@@ -103,7 +103,6 @@ public class DBUtils {
 
             ps.executeUpdate();
 
-
             ps = connection.prepareStatement(getSelectPlayerItemsQuery());
 
             for (Long newItem : Player.getInventoryItemsId()) {

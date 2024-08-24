@@ -114,6 +114,8 @@ public class SignupContr extends DBUtils {
             Player.setXp(START_XP);
             Player.setCoins(START_COINS);
             Player.setPlayerProfileIcon(profilePicture);
+
+            Player.saveData = true;
             
             // Test code if everything goes well. 
             try {
