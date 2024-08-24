@@ -95,7 +95,7 @@
                      </font>
                   </Label>
                   <Region fx:id="space3" HBox.hgrow="ALWAYS" />
-                  <Label text="Logout" textFill="#d9d9d9">
+                  <Label fx:id="logoutLabel" text="Logout" textFill="#d9d9d9">
                      <font>
                         <Font name="Arial" size="22.0" />
                      </font>

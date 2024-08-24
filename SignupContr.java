@@ -1,3 +1,4 @@
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -6,12 +7,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Random;
-
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 
 public class SignupContr extends DBUtils {
 
@@ -91,7 +92,9 @@ public class SignupContr extends DBUtils {
             String hashedPassword = hashPassword(password);
 
             String randomPfpPath = "assets/images/default_pfps/" + chooseProfile();
-            Image profilePicture = new Image(randomPfpPath);
+            
+            BufferedImage profilePicture = ImageIO.read(new File(randomPfpPath));
+
             byte[] profilePicBytes = readImage(randomPfpPath);
 
             // Binds the parameters to the prepared statement. 
@@ -128,6 +131,7 @@ public class SignupContr extends DBUtils {
             serviceDown(new Signup());
         } catch (Exception e) {
             incorrectLabels.get("confirmPassword").setText("An error has occured. Please try again later...");
+            serviceDown(new Signup());
             e.printStackTrace();
         } finally {
             closeResultSet(resultSet);
@@ -171,7 +175,16 @@ public class SignupContr extends DBUtils {
         fis.close();
         return imageBytes;
     }
-    
+
+    public static byte[] readImage(BufferedImage image, String format) throws IOException {
+        // Step 1: Convert BufferedImage to ByteArrayOutputStream
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ImageIO.write(image, format, byteArrayOutputStream);
+
+        // Step 2: Convert ByteArrayOutputStream to byte array
+        return byteArrayOutputStream.toByteArray();
+    }
+
     public static String getEmailTaken() {
         return EMAIL_TAKEN;
     }

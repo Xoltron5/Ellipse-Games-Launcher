@@ -2,6 +2,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -9,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
+import java.awt.image.BufferedImage;
 
 public class GamePage extends MainPage {
     @FXML
@@ -28,6 +30,7 @@ public class GamePage extends MainPage {
 
         // sets up the game page content. 
         initialPageSetUp();
+        
     }
 
     @Override
@@ -96,7 +99,7 @@ public class GamePage extends MainPage {
         getProfileImageView().setClip(clip);
 
         // Get the players profile picture and assign it to the Profile Image View
-        getProfileImageView().setImage(Player.getPlayerProfileIcon());
+        getProfileImageView().setImage(DBUtils.convertToFxImage(Player.getPlayerProfileIcon()));
 
         // Add an event handler to the ImageView
         getProfileImageView().setOnMouseClicked(event -> onImageViewClicked());
@@ -125,7 +128,12 @@ public class GamePage extends MainPage {
 
             // Assign the image to the ImageView
             getProfileImageView().setImage(image);
-            Player.setPlayerProfileIcon(image);
+
+            // Convert the JavaFX Image to a BufferedImage
+            BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
+
+            // Optionally, you can store or manipulate the BufferedImage here
+            Player.setPlayerProfileIcon(bufferedImage); // Assuming Player expects a BufferedImage
         }
     }
 

@@ -82,6 +82,7 @@ public class ItemView extends EntityView {
         
         Player.getPurchasedItems().add(itemDetails.getName());
         Player.getInventory().add(itemDetails.getName());
+        Player.getInventoryItemsId().add(itemDetails.getId());
         storePage.getActionButton().setText("Owned");
         storePage.getActionButton().setStyle("-fx-background-color: #D45D2A");
     }

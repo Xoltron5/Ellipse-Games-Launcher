@@ -1,14 +1,16 @@
 import java.util.ArrayList;
-import javafx.scene.image.Image;
+import java.awt.image.BufferedImage;
 
 public class Player {    
+    private static long id;
     private static String username;
     private static long xp;
     private static long coins; 
     private static ArrayList<String> inventory = new ArrayList<>();
+    private static ArrayList<Long> inventoryItemsId = new ArrayList<>();
     private static ArrayList<String> purchasedItems = new ArrayList<>();
 
-    private static Image PlayerProfileIcon;
+    private static BufferedImage PlayerProfileIcon;
 
     private final static long BASE_XP = 100;
 
@@ -22,6 +24,14 @@ public class Player {
 
         // XP needed for next level = Base XP × (Current Level) ^ 2
         return (long) (BASE_XP * Math.pow(nextLevel, 2));
+    }
+
+    public static long getId() {
+        return id;
+    }
+
+    public static void setId(long id) {
+        Player.id = id;
     }
 
     public static String getUsername() {
@@ -60,11 +70,28 @@ public class Player {
         return BASE_XP;
     }
 
-    public static Image getPlayerProfileIcon() {
+    public static BufferedImage getPlayerProfileIcon() {
         return PlayerProfileIcon;
     }
 
-    public static void setPlayerProfileIcon(Image playerProfileIcon) {
+    public static void setPlayerProfileIcon(BufferedImage playerProfileIcon) {
         PlayerProfileIcon = playerProfileIcon;
     }
+
+    public static ArrayList<Long> getInventoryItemsId() {
+        return inventoryItemsId;
+    }
+
+    public static void setInventoryItemsId(ArrayList<Long> inventoryItemsId) {
+        Player.inventoryItemsId = inventoryItemsId;
+    }
+
+    public static void setInventory(ArrayList<String> inventory) {
+        Player.inventory = inventory;
+    }
+
+    public static void setPurchasedItems(ArrayList<String> purchasedItems) {
+        Player.purchasedItems = purchasedItems;
+    }
+    
 }

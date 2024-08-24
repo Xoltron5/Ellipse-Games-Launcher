@@ -1,1 +1,1 @@
-SELECT xp, coins, icon FROM player WHERE username = ?;
+SELECT id, xp, coins, icon FROM player WHERE username = ?;

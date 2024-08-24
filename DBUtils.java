@@ -1,3 +1,4 @@
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
@@ -12,6 +13,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
+import com.mysql.cj.jdbc.exceptions.CommunicationsException;
+
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 
 public class DBUtils {
 
@@ -24,6 +30,14 @@ public class DBUtils {
     private static String dbPropertiesFilePath = "..\\private\\Ellipse-Games-Launcher\\db.properties";
 
     private static final String INCORRECT_USERNAME_OR_PASSWORD = "Incorrect username or password.";
+
+    // Query file paths 
+    private static final String selectPlayerDataQueryPath = "sql/updatePlayerData/updatePlayerDataTable.sql";
+    private static final String selectPlayerItemsQueryPath = "sql/updatePlayerData/updatePlayerItemsTable.sql";
+
+    // SQL queries (for login) 
+    private static String selectPlayerDataQuery = loadSQLFromFile(getSelectPlayerDataQueryPath());
+    private static String selectPlayerItemsQuery = loadSQLFromFile(getSelectPlayerItemsQueryPath());
 
     protected static Connection connect() {
         Connection connection = null;
@@ -60,6 +74,53 @@ public class DBUtils {
             dbPassword = prop.getProperty("dbPassword");
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void savePlayerData() {
+        // A Connection(Session) with a specific database.
+        Connection connection = null;
+
+        // Prepared Statement is a template statement that we can prepare and set values for ? later. 
+        PreparedStatement ps = null;              
+        
+        // A table of data representing the results returned from the database.
+        ResultSet resultSet = null;
+
+        try {
+            connection = connect();
+
+            ps = connection.prepareStatement(getSelectPlayerDataQuery());
+
+            BufferedImage playerIcon = Player.getPlayerProfileIcon();
+            
+            byte[] profilePicBytes = SignupContr.readImage(playerIcon, "png");
+
+            ps.setLong(1, Player.getXp());
+            ps.setLong(2, Player.getCoins());
+            ps.setBytes(3, profilePicBytes);
+            ps.setLong(4, Player.getId());
+
+            ps.executeUpdate();
+
+
+            ps = connection.prepareStatement(getSelectPlayerItemsQuery());
+
+            for (Long newItem : Player.getInventoryItemsId()) {
+                ps.setLong(1, Player.getId());
+                ps.setLong(2, newItem);
+
+                ps.executeUpdate();
+            }
+
+        } catch (CommunicationsException  e) {
+            System.err.println("Failed to establish connection: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            closeResultSet(resultSet);
+            closePs(ps);
+            closeConnection(connection);
         }
     }
  
@@ -119,6 +180,15 @@ public class DBUtils {
         }
     }
 
+    public static Image convertToFxImage(BufferedImage bufferedImage) {
+        if (bufferedImage != null) {
+            // Convert BufferedImage to Image (WritableImage is a subclass of Image)
+            WritableImage fxImage = SwingFXUtils.toFXImage(bufferedImage, null);
+            return fxImage;
+        }
+        return null;
+    }
+
     // Getters & Setters 
     public static String getDbUrl() {
         return dbUrl;
@@ -150,5 +220,21 @@ public class DBUtils {
 
     public static String getDbPropertiesFilePath() {
         return dbPropertiesFilePath;
+    }
+ 
+    public static String getSelectPlayerDataQueryPath() {
+        return selectPlayerDataQueryPath;
+    }
+
+    public static String getSelectPlayerDataQuery() {
+        return selectPlayerDataQuery;
+    }
+
+    public static String getSelectPlayerItemsQueryPath() {
+        return selectPlayerItemsQueryPath;
+    }
+
+    public static String getSelectPlayerItemsQuery() {
+        return selectPlayerItemsQuery;
     }
 }

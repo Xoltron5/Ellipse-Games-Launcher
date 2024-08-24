@@ -1,1 +1,1 @@
-SELECT name FROM items_owned WHERE username = ?;
+SELECT id, name FROM items_owned WHERE username = ?;

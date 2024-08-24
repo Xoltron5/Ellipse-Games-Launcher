@@ -31,4 +31,10 @@ public class PageManager {
             previousPage.initializeScene(primaryStage);
         }
     }
+
+    public void clearPageStack() {
+        while (!pageHistory.isEmpty()) {
+            pageHistory.pop();
+        }
+    }
 }

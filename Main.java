@@ -12,25 +12,31 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        // Set the primary stage in the Main class
         Main.setStage(primaryStage);
+    
+        // Set the title and icon of the stage
         stage.setTitle(getTITLE());
         stage.getIcons().add(getICON());
-
+    
+        // Initialize the PageManager with the primary stage
         pageManager = new PageManager(primaryStage);
-
+    
+        // Load database credentials and game/item details
         DBUtils.loadDatabaseCredentials();
-
         GameDetailsContr.loadGameDetails();
-
         ItemDetailsContr.loadItemDetails();
-
+    
+        // Navigate to the welcome page
         Welcome welcomePage = new Welcome();
-        
         FXMLLoader loader = pageManager.navigateTo(welcomePage);
-
         welcomePage = loader.getController();
-        
-        //welcomePage.displayErrorMessage("HELLLOOOOO");
+    
+        // Ensure the stage is centered on the screen
+        stage.centerOnScreen();
+    
+        // Show the primary stage
+        stage.show();
     }
 
     public static void main(String[] args) {

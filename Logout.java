@@ -1,32 +1,26 @@
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
-public class ServiceUnavailable extends Page {
-
+public class Logout extends Page {
     @FXML 
     private BorderPane mainPane;
 
     @FXML
-    private Label errorCodeLabel;
-
-    @FXML
-    private Label errorDescriptionLabel;
+    private Button logoutButton;
 
     @FXML
     private Button previousPageButton;
 
-    @FXML
-    private Label logoutLabel;
-
-    private String fxmlFilePath = "/assets/fxml/ServiceUnavailable.fxml";
-    private String cssFilePath = "/assets/css/ServiceUnavailable.css";
+    private String fxmlFilePath = "/assets/fxml/Logout.fxml";
+    private String cssFilePath = "/assets/css/Logout.css";
     private String css = this.getClass().getResource(getCSSFilePath()).toExternalForm();
 
-    public ServiceUnavailable() {
+    public Logout() {
         setFXMLFilePath(fxmlFilePath);
         setCSSFilePath(cssFilePath);
         setCSS(css);
@@ -35,6 +29,18 @@ public class ServiceUnavailable extends Page {
     public void goBack(ActionEvent e) throws IOException {
         Main.getPageManager().navigateBack();
     }   
+
+    public void logout(ActionEvent e) throws IOException {
+
+        DBUtils.savePlayerData();
+
+        Player.setInventory(new ArrayList<String>());
+        Player.setInventoryItemsId(new ArrayList<Long>());
+        Player.setPurchasedItems(new ArrayList<String>());
+        
+        Main.getPageManager().clearPageStack();
+        Main.getPageManager().navigateTo(new Welcome());
+    }
 
     // Getters & Setters 
     @Override
@@ -60,23 +66,7 @@ public class ServiceUnavailable extends Page {
         this.previousPageButton = previousPageButton;
     }
 
-    public Label getErrorCodeLabel() {
-        return errorCodeLabel;
-    }
-
-    public void setErrorCodeLabel(Label errorCodeLabel) {
-        this.errorCodeLabel = errorCodeLabel;
-    }
-    
-    public Label getErrorDescriptionLabel() {
-        return errorDescriptionLabel;
-    }
-
-    public void setErrorDescriptionLabel(Label errorDescriptionLabel) {
-        this.errorDescriptionLabel = errorDescriptionLabel;
-    }
-
-    public Label getLogoutLabel() {
-        return logoutLabel;
+    public Button getlogoutButton() {
+        return logoutButton;
     }
 }

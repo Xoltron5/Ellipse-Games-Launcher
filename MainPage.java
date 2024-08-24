@@ -10,6 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
 import javafx.scene.shape.Rectangle;
 
@@ -70,6 +71,9 @@ public abstract class MainPage extends Page implements Initializable {
     @FXML
     private Button inventoryButton;
 
+    @FXML
+    private Label logoutLabel;
+
     private ArrayList<EntityDetails> filteredEntityDetailsList;
 
     public MainPage(String fxmlFilePath, String cssFilePath) {
@@ -105,6 +109,9 @@ public abstract class MainPage extends Page implements Initializable {
                 onSearchTextChanged(newValue);
             }
         });
+
+        // Set the event handler for the label click
+        getLogoutLabel().setOnMouseClicked(this::logout);
     }
 
     // Iterates through each entity details object held within a holder/container 
@@ -171,6 +178,15 @@ public abstract class MainPage extends Page implements Initializable {
         filter(new ActionEvent());
     }
 
+    public void logout(MouseEvent event) {
+        try {
+            Main.getPageManager().savePerviousPage(this);
+            Main.getPageManager().navigateTo(new Logout());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     protected abstract void initialPageSetUp();
 
     public abstract void filter(ActionEvent event);
@@ -186,7 +202,7 @@ public abstract class MainPage extends Page implements Initializable {
     public void inventoryButtonClicked(ActionEvent e) throws IOException {
         Main.getPageManager().navigateTo(new InventoryPage());
     };
-    
+
     public static String getAppVersion() {
         return APP_VERSION;
     }
@@ -257,5 +273,9 @@ public abstract class MainPage extends Page implements Initializable {
 
     public Label getErrorlabel() {
         return errorlabel;
+    }
+
+    public Label getLogoutLabel() {
+        return logoutLabel;
     }
 }
