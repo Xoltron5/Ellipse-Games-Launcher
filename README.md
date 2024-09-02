@@ -22,15 +22,33 @@ Use items to gain an advantage in games!
 ## Demo
 
 Welcome Page:
-![image](https://github.com/user-attachments/assets/3376a315-418d-437c-a410-690226d15106)
+![image](https://github.com/user-attachments/assets/dc4eddd2-0bf8-4e82-bd65-726e4beba42c)
+
+
+
+
 
 Games Page:
-![image](https://github.com/user-attachments/assets/4289ca2b-1f92-470d-84df-195158d198d5)
+![image](https://github.com/user-attachments/assets/5e32d872-a437-486d-a194-8eaf9c03a8b6)
+
+
+
+
 
 Store Page:
-![image](https://github.com/user-attachments/assets/72737bf8-f46f-4d6b-9ca7-614a2328c167)
+![image](https://github.com/user-attachments/assets/61db2cf7-700e-43d5-9041-b0045b89e1f9)
+
+
+
+
+
 
 Inventory Page:
-![image](https://github.com/user-attachments/assets/018e6a88-620e-4e82-ae45-d97cc7a1d6f3)
+![image](https://github.com/user-attachments/assets/f8b995ae-9c4a-4465-b16c-2eafe2164eb0)
+
+
+
+
+
 
 Youtube link: 
