@@ -6,7 +6,7 @@
 - [Features](#features)
 - [Demo](#demo)
 - [Configuration](#configuration)
-- [Currentprogress](#currentprogress)
+- [CurrentProgress](#currentprogress)
 - [Conclusion](#conclusion)
 - [Contact](#contact)
 
@@ -41,7 +41,7 @@ Inventory Page:
 
 Youtube link: 
 
-## Current Progress
+## CurrentProgress
 
 So far I have made the game launcher, but have not made the games yet. The games shown are just dummy holders to showcase what it would look like likewise for the items. 
 
