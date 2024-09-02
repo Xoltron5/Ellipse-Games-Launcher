@@ -1,4 +1,4 @@
-# [Ellipse Games Launcher]
+# Ellipse Games Launcher
 
 ## Table of Contents
 
@@ -12,7 +12,7 @@
 
 ## Overview
 
-[Ellipse Games Launcher] is a app that allows you to play different games unlock rewards in those games use those rewards to purchase items, level up and unlock more advanced items. This app also acts as a platform to upload any kind of game, along with items assiocated with that game that the player
+Ellipse Games Launcher is a app that allows you to play different games unlock rewards in those games use those rewards to purchase items, level up and unlock more advanced items. This app also acts as a platform to upload any kind of game, along with items assiocated with that game that the player
 can use.
 
 ## Features
