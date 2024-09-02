@@ -6,7 +6,7 @@
 - [Features](#features)
 - [Demo](#demo)
 - [Configuration](#configuration)
-- [Current Progress](#currentprogress)
+- [CurrentProgress](#currentprogress)
 - [Conclusion](#conclusion)
 - [Contact](#contact)
 
