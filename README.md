@@ -60,8 +60,12 @@ Youtube link:
 ## Current Progress
 
 So far I have made the game launcher, but have not made the games yet. The games shown are just dummy holders to showcase what it would look like likewise for the items. 
-There's also some extra things that I will add in the future such as the item name being shown on the store and inventory page so you can know the name of the item without clicking on it. 
-This launcher is a local launcher meaning you can't connect or play with friends but in the future when i learn networking programming I might implement that (would be a fun challenge :))
 
+There's also some extra things that I will add in the future such as the item name being shown on the store and inventory page so you can know the name of the item without clicking on it. 
+
+This launcher is a local launcher meaning you can't connect or play with friends but in the future when i learn networking programming I might implement that (would be a fun challenge)
+
+## Conclusion 
+This was a really fun project to make there where alot of challenges (looking at you javafx) 
 
 
