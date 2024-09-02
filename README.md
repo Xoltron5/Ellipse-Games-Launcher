@@ -6,7 +6,7 @@
 - [Features](#features)
 - [Demo](#demo)
 - [Configuration](#configuration)
-- [CurrentProgress](#currentprogress)
+- [Currentprogress](#currentprogress)
 - [Conclusion](#conclusion)
 - [Contact](#contact)
 
@@ -27,35 +27,17 @@ Welcome Page:
 
 ![image](https://github.com/user-attachments/assets/dc4eddd2-0bf8-4e82-bd65-726e4beba42c)
 
-
-
-
-
 Games Page:
 
 ![image](https://github.com/user-attachments/assets/5e32d872-a437-486d-a194-8eaf9c03a8b6)
-
-
-
-
 
 Store Page:
 
 ![image](https://github.com/user-attachments/assets/61db2cf7-700e-43d5-9041-b0045b89e1f9)
 
-
-
-
-
-
 Inventory Page:
 
 ![image](https://github.com/user-attachments/assets/f8b995ae-9c4a-4465-b16c-2eafe2164eb0)
-
-
-
-
-
 
 Youtube link: 
 
@@ -73,5 +55,11 @@ This was a really fun project to make there where alot of challenges (looking at
 After learning databases in college it was really satsifying to finally put that knowledge i learnt and actually make a proper database and have my app interact with it store user data and retrieve it! 
 
 Overall I am pretty proud of this project, but It is definitely nowhere near to being finished. I have alot planned and want to turn it into a proper app in the future. 
+
+## Contact 
+Feel free to reach out with any questions or feedback:
+
+Email: denisbajgora3@gmail.com
+
 
 
