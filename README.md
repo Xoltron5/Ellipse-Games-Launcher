@@ -5,7 +5,6 @@
 - [Overview](#overview)
 - [Features](#features)
 - [Demo](#demo)
-- [Configuration](#configuration)
 - [CurrentProgress](#currentprogress)
 - [Conclusion](#conclusion)
 - [Contact](#contact)
