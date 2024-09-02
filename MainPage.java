@@ -1,3 +1,11 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    This abstract class stores all the methods and attributes other main pages
+    (pages shown to the user after they login) have in common
+*/
+
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.beans.value.ChangeListener;

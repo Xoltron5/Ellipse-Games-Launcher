@@ -1,3 +1,10 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Item Details class is used to hold all the item details objects that represent each item.
+*/
+
 import java.util.ArrayList;
 
 public class ItemDetailsHolder extends EntityDetailsHolder {

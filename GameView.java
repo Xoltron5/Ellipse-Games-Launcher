@@ -1,3 +1,11 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Game View is the image portion of the Game object that is displayed on a page. 
+*/
+
+
 import javafx.scene.input.MouseEvent;
 
 public class GameView extends EntityView {

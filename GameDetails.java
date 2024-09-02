@@ -1,3 +1,10 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Game Details class holds all the details of the games. 
+*/
+
 public class GameDetails extends EntityDetails {
     private String releaseDate; // Release date of the game
     private String developer; // Developer of the game

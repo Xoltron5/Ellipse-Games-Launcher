@@ -1,3 +1,11 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Entity Details class is used to keep track of all the common things that entitys like games,
+    items, etc would have like a name, a icon path and description. 
+*/
+
 import java.util.ArrayList;
 
 public abstract class EntityDetails {

@@ -1,3 +1,11 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    Signup Controller class is a page that is displayed to the user when the user first opens
+    the application.
+*/
+
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,3 +1,10 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    loginout class is used to loginout the player and deleting their current session data.
+*/
+
 import java.io.IOException;
 import java.util.ArrayList;
 

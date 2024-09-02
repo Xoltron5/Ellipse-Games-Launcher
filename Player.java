@@ -1,3 +1,11 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    Player class keeps track of the player's data in their current session. All the details of the 
+    player is stored here and refered to here. 
+*/
+
 import java.util.ArrayList;
 import java.awt.image.BufferedImage;
 

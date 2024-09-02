@@ -1,3 +1,12 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    login class is used to login the player by taking the player's data and sending it to
+    the login contr class to check their data and see if it is valid and if it is it will navigate
+    them to the main page else it will display a error message. 
+*/
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;

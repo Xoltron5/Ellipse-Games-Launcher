@@ -1,3 +1,11 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    ServiceUnavaiable class is used to navigate the user to a page displaying an error message
+    to the user e.g if the database is down. 
+*/
+
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
 public class ServiceUnavailable extends Page {
-
     @FXML 
     private BorderPane mainPane;
 

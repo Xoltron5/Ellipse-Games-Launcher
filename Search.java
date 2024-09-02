@@ -1,3 +1,12 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    Search class keeps is used to iterate over the current displayed items and update the tile pane 
+    with the new returned items based on the search. NOTE: THIS SHOULD BE RAN ON A SEPERATE THREAD
+    TO AVOID FREEZING OF THE PROGRAM!
+*/
+
 import java.util.ArrayList;
 import javafx.application.Platform;
 import javafx.scene.layout.TilePane;

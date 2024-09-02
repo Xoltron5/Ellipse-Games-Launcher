@@ -1,3 +1,11 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    This is the main class responsible for setting up the intial window loading the database data 
+    such as the player and game data. Loading the welcome page. 
+*/
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;

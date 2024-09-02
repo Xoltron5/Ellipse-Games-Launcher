@@ -1,3 +1,10 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Entity View is the image portion of the Entity object that is displayed on a page. 
+*/
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;

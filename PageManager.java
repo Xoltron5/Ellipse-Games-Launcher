@@ -1,3 +1,11 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    PageManager class is used to keep track of pages. If a user goes to a page and needs to navigate
+    back to the pervious page, that page is stored in a stack so the user can navigate back. 
+*/
+
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import java.io.IOException;

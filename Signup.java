@@ -1,3 +1,11 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    Signup class is used to signup the player by taking the player's data and sending it to
+    the signup contr class to check their data and see if it is valid and if it is it will navigate
+    them to the main page else it will display a error message. 
+*/
 
 import java.io.IOException;
 import java.net.URL;

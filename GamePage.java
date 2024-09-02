@@ -1,3 +1,10 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    Game page class is the page that displays all the games that the player can play. 
+*/
+
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
@@ -25,6 +32,8 @@ public class GamePage extends MainPage {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Player.setCoins(10000);
+        Player.setXp(1500);
         // sets up initial stuff content that's common between all main pages.
         initialSetUp();
 

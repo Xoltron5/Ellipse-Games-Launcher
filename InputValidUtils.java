@@ -1,4 +1,12 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
 
+    The InputValidUtils class provides a set of utility methods to validate user input fields 
+    in a JavaFX application. It checks for correct email format, valid date of birth, 
+    matching passwords, and lengths for usernames and passwords. The class also 
+    includes methods to clear error messages and manage validation results.
+ */
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;

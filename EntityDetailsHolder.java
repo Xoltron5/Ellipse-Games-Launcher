@@ -1,3 +1,11 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Entity Details Holder class is used to hold entity detail objects in an
+    arraylist. 
+*/
+
 import java.util.ArrayList;
 
 public abstract class EntityDetailsHolder {

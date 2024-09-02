@@ -1,3 +1,13 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    DBUtils class provides mnethods for managing database connections,
+    loading and executing SQL queries, handling player data (such as experience points, coins, 
+    and inventory items), and securing passwords. It also includes methods 
+    for resource management, error handling, and converting images.
+*/
+
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -14,13 +24,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 import com.mysql.cj.jdbc.exceptions.CommunicationsException;
-
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 
 public class DBUtils {
-
     // Database credentials
     private static String dbUrl;
     private static String dbUser;

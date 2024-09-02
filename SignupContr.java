@@ -1,3 +1,12 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    Signup Controller class is used to test the players input and check the data they inputed is 
+    valid if so it can be inserted in the database if not then it will change one of the error labels
+    part of the signup page. 
+*/
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,7 +24,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class SignupContr extends DBUtils {
-
     // Query file paths 
     private static final String FIND_USER_QUERY_PATH = "sql/signup/findUser.sql";
     private static final String FIND_EMAIL_QUERY_PATH = "sql/signup/findEmail.sql";
@@ -92,7 +100,7 @@ public class SignupContr extends DBUtils {
             String hashedPassword = hashPassword(password);
 
             String randomPfpPath = "assets/images/default_pfps/" + chooseProfile();
-            
+            System.out.println("randomPfpPath: " + randomPfpPath);
             BufferedImage profilePicture = ImageIO.read(new File(randomPfpPath));
 
             byte[] profilePicBytes = readImage(randomPfpPath);

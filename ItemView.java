@@ -1,3 +1,10 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Item View is the image portion of the Item object that is displayed on a page. 
+*/
+
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 

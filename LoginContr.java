@@ -1,3 +1,12 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    Login Controller class is used to test the players input and check the data they inputed is 
+    valid if so it can be inserted in the database if not then it will change one of the error labels
+    part of the login page. 
+*/
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.Connection;

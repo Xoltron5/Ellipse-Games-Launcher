@@ -1,3 +1,10 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Game Details class is used to hold all the itemdetails objects that represent each game.
+*/
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,3 +1,11 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Game Details Controller is used to connect to the database create game detail objects that will
+    hold the details of a game. 
+*/
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

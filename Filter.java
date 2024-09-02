@@ -1,3 +1,11 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Fitler class is used to filter entity's like games, items, etc... and display the new filtered
+    items on the tilepane.
+*/
+
 import java.util.ArrayList;
 import javafx.application.Platform;
 import javafx.scene.layout.TilePane;

@@ -1,3 +1,11 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    Page class stores everything that all pages have common including a initializeScene method,
+    fxml and css file paths. 
+*/
+
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -5,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public abstract class Page {
-
     private String fxmlFilePath;
     private String cssFilePath;
     private String css;

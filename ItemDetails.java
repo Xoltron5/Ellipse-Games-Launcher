@@ -1,3 +1,11 @@
+/*
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Entity Details Holder class is used to hold item detail objects in an
+    arraylist. 
+*/
+
 public class ItemDetails extends EntityDetails {
     private long gameId; // The game this item is part of.
     private int levelReq; // Level Requirment 

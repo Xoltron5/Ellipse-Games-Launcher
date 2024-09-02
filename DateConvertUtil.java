@@ -1,3 +1,10 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+    
+    Date Convert Utility class is used to convert DD/MM/YYYY to YYYY/MM/DD and vise versa.
+*/
+
 public class DateConvertUtil {
     private static final String FORMAT_TYPE_1 = "DD/MM/YYYY to YYYY/MM/DD";
     private static final String FORMAT_TYPE_2 = "YYYY/MM/DD to DD/MM/YYYY";

@@ -1,3 +1,10 @@
+/* 
+    Author: Denis Bajgora
+    Date: 1/9/2024
+
+    Store page class is the page that displays all the items that are on sale. 
+*/
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
