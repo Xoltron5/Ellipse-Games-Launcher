@@ -6,7 +6,6 @@
 - [Features](#features)
 - [Demo](#demo)
 - [CurrentProgress](#currentprogress)
-- [Conclusion](#conclusion)
 - [Contact](#contact)
 
 ## Overview
@@ -47,13 +46,6 @@ So far I have made the game launcher, but have not made the games yet. The games
 There's also some extra things that I will add in the future such as the item name being shown on the store and inventory page so you can know the name of the item without clicking on it. 
 
 This launcher is a local launcher meaning you can't connect or play with friends but in the future when i learn networking programming I might implement that (would be a fun challenge)
-
-## Conclusion 
-This was a really fun project to make there where alot of challenges (looking at you javafx). This project expanded my java knowledge even improving my UI design skills. The UI was really satisfying to make in Figma but javafx was a different story. 
-
-After learning databases in college it was really satisfying to finally put that knowledge i learnt and actually make a proper database and have my app interact with it store user data and retrieve it! 
-
-Overall I am pretty proud of this project, but It is definitely nowhere near to being finished. I have alot planned and want to turn it into a proper app in the future. 
 
 ## Contact 
 
